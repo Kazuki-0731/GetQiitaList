@@ -53,6 +53,10 @@ import susu.com.getqiitalist.view.fragment.QiitaFragment
  */
 class ItemRepository(private val activity: Activity, private val qiitaFragment: QiitaFragment) {
 
+    /**
+     * TODO できればパラメータを動的に変更できるようにしたい。
+     * TODO ユーザーを設定から変更できるなど
+     */
     // 通信用
     private var itemService: ItemService
     private var USER_ID = "susu_susu__"
@@ -71,7 +75,7 @@ class ItemRepository(private val activity: Activity, private val qiitaFragment: 
         itemService = retrofit.create(ItemService::class.java)
     }
 
-    // エラー処理は省いています
+    // Qiita記事のリスト取得
     fun getItemList(callback: (List<QiitaDTO>) -> Unit) {
         itemService.items(page = PAGE, perPage = PAR_PAGE).enqueue(object : Callback<List<QiitaDTO>> {
 

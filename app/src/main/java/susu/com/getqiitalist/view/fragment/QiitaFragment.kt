@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.RetrofitApplication
-import susu.com.getqiitalist.controller.action.UserIO
 import susu.com.getqiitalist.controller.repository.ItemRepository
 import susu.com.getqiitalist.model.cache.QiitaCache
 import susu.com.getqiitalist.model.entities.QiitaDTO
@@ -47,7 +47,7 @@ class QiitaFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         /**
          * 再描画防止(onCreateは1度しか呼ばれない)
-         * 横画面に回転した際に何度もFragmentが呼ばれてしまうため
+         * 横画面に回転する度にFragmentが呼ばれてしまうため
          */
         retainInstance = true
         return inflater.inflate(R.layout.content_main, container, false)
@@ -55,6 +55,9 @@ class QiitaFragment : BaseFragment() {
 
     // View生成後後
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // ローディングを表示
+        activity!!.progressBar.visibility = View.VISIBLE
+
         // データ取得
         getQiitaData()
         // Viewの表示処理
@@ -72,7 +75,6 @@ class QiitaFragment : BaseFragment() {
      */
     private fun setupQiitaList() {
         // Adapter生成
-//        adapter = QiitaAdapter(activity!!.applicationContext)
         adapter = QiitaAdapter(activity!!.applicationContext, fragmentManager!!)
         // 初期値格納
         adapter!!.qiitaList = dataList
@@ -104,11 +106,13 @@ class QiitaFragment : BaseFragment() {
      * Qiita記事のタイトル一覧を取得する
      */
     private fun getQiitaData() {
-        // ローディングアイコンを表示
-        swiperefresh.isRefreshing = true
         // Retrofitでデータ取得
         val itemRepository = ItemRepository(activity!!, this)
         itemRepository.getItemList { itemList ->
+            if(activity!!.progressBar.visibility == View.VISIBLE){
+                // ローディングを非表示
+                activity!!.progressBar.visibility = View.GONE
+            }
             // ロードアイコン非表示
             swiperefresh.isRefreshing = false
             // Listをadapterにセット
@@ -142,6 +146,9 @@ class QiitaFragment : BaseFragment() {
      * スワイプ時のアイコン非表示
      */
     fun stopSwipeLoadIcon(){
+        // ローディングを非表示
+        activity!!.progressBar.visibility = View.GONE
+        // ロードアイコン非表示
         swiperefresh.isRefreshing = false
     }
 }
