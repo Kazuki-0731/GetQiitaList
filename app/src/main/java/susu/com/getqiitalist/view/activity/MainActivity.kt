@@ -19,13 +19,14 @@ class MainActivity : BaseActivity() {
         // Fragment生成
         if (savedInstanceState == null) {
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.addToBackStack(null)
-            transaction.replace(R.id.container, QiitaFragment.getInstance())
+            transaction.add(R.id.container, QiitaFragment.getInstance())
             transaction.commit()
         }
 
         // Controllerを初期化
 //        UserIO(this, supportFragmentManager)
+        UserIO.statefulActivity = this
+        UserIO.statefulFragment = supportFragmentManager
     }
 
     // 設定メニュー

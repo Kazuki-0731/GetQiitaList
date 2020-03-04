@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.content_main.*
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.RetrofitApplication
+import susu.com.getqiitalist.controller.action.UserIO
 import susu.com.getqiitalist.controller.repository.ItemRepository
 import susu.com.getqiitalist.model.cache.QiitaCache
 import susu.com.getqiitalist.model.entities.QiitaDTO
@@ -30,7 +31,7 @@ class QiitaFragment : BaseFragment() {
     // 静的領域
     companion object {
         // 遅延宣言
-        private var instance: QiitaFragment = QiitaFragment()
+        private var instance : QiitaFragment = QiitaFragment()
         // シングルトンなインスタンス取得
         fun getInstance(): QiitaFragment {
             return instance
@@ -64,6 +65,7 @@ class QiitaFragment : BaseFragment() {
             getQiitaData()
         }
     }
+    //endregion
 
     /**
      * Qiitaのリスト表示をするレイアウトを構築する
@@ -102,8 +104,10 @@ class QiitaFragment : BaseFragment() {
      * Qiita記事のタイトル一覧を取得する
      */
     private fun getQiitaData() {
-        // データ取得
-        val itemRepository = ItemRepository()
+        // ローディングアイコンを表示
+        swiperefresh.isRefreshing = true
+        // Retrofitでデータ取得
+        val itemRepository = ItemRepository(activity!!, this)
         itemRepository.getItemList { itemList ->
             // ロードアイコン非表示
             swiperefresh.isRefreshing = false
@@ -133,5 +137,11 @@ class QiitaFragment : BaseFragment() {
 //        )
         // endregion
     }
-    //endregion
+
+    /**
+     * スワイプ時のアイコン非表示
+     */
+    fun stopSwipeLoadIcon(){
+        swiperefresh.isRefreshing = false
+    }
 }

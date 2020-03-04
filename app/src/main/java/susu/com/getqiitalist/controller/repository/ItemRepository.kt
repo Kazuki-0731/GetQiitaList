@@ -1,15 +1,21 @@
 package susu.com.getqiitalist.controller.repository
 
+import android.app.Activity
+import android.util.Log
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
+import kotlinx.android.synthetic.main.content_main.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import susu.com.getqiitalist.http.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
 import susu.com.getqiitalist.model.service.ItemService
+import susu.com.getqiitalist.view.activity.BaseActivity
+import susu.com.getqiitalist.view.fragment.QiitaFragment
 
 /**
  * WebAPIを叩いて、JSON取得してModelに格納して返却するクラス
@@ -45,9 +51,9 @@ import susu.com.getqiitalist.model.service.ItemService
  * アプリ立ち上げ時画面1へ遷移
  * 画面1のリスト内の要素を押下すると押下されたアイテムのURLを引数に画面2へ遷移
  */
-class ItemRepository {
+class ItemRepository(private val activity: Activity, private val qiitaFragment: QiitaFragment) {
 
-    // メンバ変数
+    // 通信用
     private var itemService: ItemService
     private var USER_ID = "susu_susu__"
     private var PAGE = 1
@@ -72,8 +78,10 @@ class ItemRepository {
             // データ取得後
             override fun onResponse(call: Call<List<QiitaDTO>>?, response: Response<List<QiitaDTO>>?) {
                 response?.let {
+                    // 通信成功
                     if (response.isSuccessful) {
                         response.body()?.let {
+                            // コールバック返却
                             callback(it)
                         }
                     }
@@ -81,8 +89,13 @@ class ItemRepository {
             }
 
             // エラー処理
-            override fun onFailure(call: Call<List<QiitaDTO>>?, t: Throwable?) {
-                // エラー処理
+            override fun onFailure(call: Call<List<QiitaDTO>>?, throwable: Throwable?) {
+                // エラー種別振り分け
+                val exception = RetrofitException.asRetrofitException(throwable!!)
+                // ダイアログ表示
+                (activity as? BaseActivity)?.showHttpErrorDialog(exception)
+                // ロードアイコン非表示
+                qiitaFragment.stopSwipeLoadIcon()
             }
         })
     }
