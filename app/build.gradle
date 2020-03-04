@@ -23,7 +23,7 @@ android {
     }
 }
 
-def retrofit_ver = '2.3.0'
+def retrofit_ver = '2.4.0'
 def moshi_ver = '1.5.0'
 def okhttp3_ver = '3.10.0'
 
@@ -40,9 +40,14 @@ dependencies {
 
     // Rxkotlin
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.3.0'
 
     // Moshi
     implementation "com.squareup.moshi:moshi:$moshi_ver"
@@ -51,4 +56,12 @@ dependencies {
 
     // Okhttp
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_ver"
+
+    // Coroutine
+    def coroutines_version = "1.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // Swipeレイアウト
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 }

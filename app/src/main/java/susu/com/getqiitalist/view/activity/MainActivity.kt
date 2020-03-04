@@ -1,31 +1,31 @@
-package susu.com.getqiitalist
+package susu.com.getqiitalist.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
+import susu.com.getqiitalist.R
+import susu.com.getqiitalist.controller.action.UserIO
 import susu.com.getqiitalist.view.fragment.QiitaFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        // Controllerインスタンス
-
         // Fragment生成
         if (savedInstanceState == null) {
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.container, QiitaFragment.getInstance())
+            transaction.addToBackStack(null)
+            transaction.replace(R.id.container, QiitaFragment.getInstance())
             transaction.commit()
         }
 
-        // 動作確認用
-//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//            .setAction("Action", null).show()
+        // Controllerを初期化
+//        UserIO(this, supportFragmentManager)
     }
 
     // 設定メニュー

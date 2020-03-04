@@ -47,19 +47,18 @@ import susu.com.getqiitalist.model.service.ItemService
  */
 class ItemRepository {
 
+    // メンバ変数
     private var itemService: ItemService
     private var USER_ID = "susu_susu__"
-    private var PAGE = "1"
-    private var PAR_PAGE = "20"
+    private var PAGE = 1
+    private var PAR_PAGE = 20
 
+    // 初期化
     init {
         val okHttpClient = OkHttpClient.Builder().build()
         val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://qiita.com/api/v2/users/$USER_ID"
-                .plus("/items?page=$PAGE")
-                .plus("&per_page=$PAR_PAGE")
-            )
+            .baseUrl("https://qiita.com/api/v2/users/$USER_ID/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttpClient)
             .build()
@@ -68,7 +67,7 @@ class ItemRepository {
 
     // エラー処理は省いています
     fun getItemList(callback: (List<QiitaDTO>) -> Unit) {
-        itemService.items(page = 1, perPage = 10).enqueue(object : Callback<List<QiitaDTO>> {
+        itemService.items(page = PAGE, perPage = PAR_PAGE).enqueue(object : Callback<List<QiitaDTO>> {
 
             // データ取得後
             override fun onResponse(call: Call<List<QiitaDTO>>?, response: Response<List<QiitaDTO>>?) {
@@ -82,7 +81,9 @@ class ItemRepository {
             }
 
             // エラー処理
-            override fun onFailure(call: Call<List<QiitaDTO>>?, t: Throwable?) {}
+            override fun onFailure(call: Call<List<QiitaDTO>>?, t: Throwable?) {
+                // エラー処理
+            }
         })
     }
 }

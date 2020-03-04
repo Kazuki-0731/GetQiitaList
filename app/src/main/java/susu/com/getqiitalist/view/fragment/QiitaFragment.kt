@@ -1,29 +1,36 @@
 package susu.com.getqiitalist.view.fragment
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.content_main.*
 import susu.com.getqiitalist.R
+import susu.com.getqiitalist.RetrofitApplication
 import susu.com.getqiitalist.controller.repository.ItemRepository
-import susu.com.getqiitalist.view.util.QiitaAdapter
+import susu.com.getqiitalist.model.cache.QiitaCache
+import susu.com.getqiitalist.model.entities.QiitaDTO
+import susu.com.getqiitalist.view.adapter.QiitaAdapter
 
 /**
  * ListViewのFragment
  */
-class QiitaFragment : Fragment() {
+class QiitaFragment : BaseFragment() {
+
+    var dataList: List<QiitaDTO> = mutableListOf()
+
+    private val qiitaViewModel: QiitaCache by lazy {
+        ViewModelProvider.AndroidViewModelFactory(RetrofitApplication.getInstance())
+            .create(QiitaCache::class.java)
+    }
 
     // 静的領域
     companion object {
         // 遅延宣言
-        private var instance: QiitaFragment =
-            QiitaFragment()
+        private var instance: QiitaFragment = QiitaFragment()
         // シングルトンなインスタンス取得
         fun getInstance(): QiitaFragment {
             return instance
@@ -33,7 +40,8 @@ class QiitaFragment : Fragment() {
     // リストAdapterのメンバ変数
     private var adapter : QiitaAdapter? = null
 
-    // View生成前
+    // region Fragment()拡張
+    // View生成時
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         /**
@@ -44,28 +52,28 @@ class QiitaFragment : Fragment() {
         return inflater.inflate(R.layout.content_main, container, false)
     }
 
-    // 表示後
+    // View生成後後
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // 配列初期化
-        var dataArray: Array<String> = arrayOf("test", "test1")
-//        // DB初期化
-//        val dbhelper = DBHelper(activity!!.applicationContext)
-//        // DBから
-//        if(dbhelper.getMaxID() != 0){
-//            dataArray = dbhelper.selectTODO()
-//        }
-
         // データ取得
-        val itemRepository = ItemRepository()
-        itemRepository.getItemList { itemList ->
-            itemList.forEach {
-                Log.d("test", "title : ".plus(it.title))
-            }
-            Log.d("test", "$itemList")
-        }
+        getQiitaData()
+        // Viewの表示処理
+        setupQiitaList()
 
+        // スワイプ時の処理
+        swiperefresh.setOnRefreshListener {
+            getQiitaData()
+        }
+    }
+
+    /**
+     * Qiitaのリスト表示をするレイアウトを構築する
+     */
+    private fun setupQiitaList() {
         // Adapter生成
-        adapter = QiitaAdapter(activity!!.applicationContext, dataArray)
+//        adapter = QiitaAdapter(activity!!.applicationContext)
+        adapter = QiitaAdapter(activity!!.applicationContext, fragmentManager!!)
+        // 初期値格納
+        adapter!!.qiitaList = dataList
         // listViewに代入
         listView.adapter = adapter
         // 長押しイベント付与
@@ -76,18 +84,54 @@ class QiitaFragment : Fragment() {
             Toast.makeText(activity!!.applicationContext, "$str", Toast.LENGTH_LONG).show()
             true
         }
+
+        /**
+         * 本当はobserve()使って、受信時の処理を細かく記述しようとしたが、時間の関係上あと回し
+         */
+        // region TODO : あとで保守
+        // オブザーブ受信後の表示側
+//        qiitaViewModel.QiitaListLiveData.observe(viewLifecycleOwner, Observer {
+//            adapter!!.qiitaList = it
+//            // notify??
+//            adapter!!.notifyDataSetChanged()
+//        })
+        // endregion
     }
 
     /**
-     * DBから取得してリロード
+     * Qiita記事のタイトル一覧を取得する
      */
-//    fun reload(context: Context, db : DBHelper){
-//        // DBから取得
-//        var dataArray = db.selectTODO()
-//
-//        // adapterセット
-//        adapter = QiitaAdapter(context, dataArray)
-//        listView.adapter = adapter
-//        adapter!!.notifyDataSetChanged()
-//    }
+    private fun getQiitaData() {
+        // データ取得
+        val itemRepository = ItemRepository()
+        itemRepository.getItemList { itemList ->
+            // ロードアイコン非表示
+            swiperefresh.isRefreshing = false
+            // Listをadapterにセット
+            adapter!!.qiitaList = itemList
+            // リロード
+            adapter!!.notifyDataSetChanged()
+        }
+
+        // region TODO : あとで保守
+//        mCompositeDisposable.add(
+//            QiitaClient().getQiitaNote(
+//                { qiita ->
+//                    // 通信後の処理
+//                    val qiitaList = mutableListOf<QiitaDTO>()
+//                    qiitaViewModel.QiitaListLiveData.postValue(qiitaList)
+//                    qiitaList.forEach {
+//                        Log.d("debug", "title : ".plus(it.title))
+//                    }
+//                },
+//                { throwable ->
+//                    if (throwable is RetrofitException) {
+//                        (activity as? BaseActivity)?.showHttpErrorDialog(throwable)
+//                    }
+//                }
+//            )
+//        )
+        // endregion
+    }
+    //endregion
 }
