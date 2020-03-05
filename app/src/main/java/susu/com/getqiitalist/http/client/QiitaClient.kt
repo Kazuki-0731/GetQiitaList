@@ -8,7 +8,7 @@ import susu.com.getqiitalist.http.construct.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
 
 /**
- * 都市の天気情報を取得する通信クライアント
+ * Qiitaを取得する通信クライアント
  */
 class QiitaClient : BaseJsonClient() {
 

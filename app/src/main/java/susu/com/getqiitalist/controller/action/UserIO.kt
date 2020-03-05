@@ -26,7 +26,6 @@ class UserIO {
         /**
          * TODO : 初期表示周り
          * 設定値から読み出して初期表示
-         * DBからの読み取り
          */
         LogUtils.d("debug", "UserIO init()")
     }
