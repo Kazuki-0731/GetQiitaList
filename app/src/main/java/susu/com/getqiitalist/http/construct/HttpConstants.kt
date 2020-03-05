@@ -13,7 +13,7 @@ class HttpConstants {
         /** 読み取りのタイムアウト秒数 */
         const val READ_TIMEOUT_MS = 120L
         /** 最大リトライ回数 */
-        const val RETRY_COUNT = 3L
+        const val RETRY_COUNT = 3
 
         // ========== リクエストヘッダー =========== //
         const val HEADER_USER_AGENT = "User-Agent"

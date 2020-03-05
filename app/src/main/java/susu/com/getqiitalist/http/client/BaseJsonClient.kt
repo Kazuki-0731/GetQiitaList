@@ -2,6 +2,7 @@ package susu.com.getqiitalist.http.client
 
 import com.google.gson.Gson
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import susu.com.getqiitalist.http.RxCallAdapterWrapperFactory
 import susu.com.getqiitalist.util.UrlUtils
@@ -15,7 +16,8 @@ abstract class BaseJsonClient : BaseClient() {
 
         client(getHttpClient())
         baseUrl(UrlUtils.getDomain())
-        addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
+//        addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
+        addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         addConverterFactory(GsonConverterFactory.create(Gson()))
     }.build()
 }

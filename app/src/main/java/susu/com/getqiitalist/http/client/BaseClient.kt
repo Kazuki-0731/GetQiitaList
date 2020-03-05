@@ -1,15 +1,22 @@
 package susu.com.getqiitalist.http.client
 
-import io.reactivex.Observable
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import rx.Observable
+import rx.Single
+import rx.android.schedulers.AndroidSchedulers
+import rx.*
+import rx.schedulers.Schedulers
+//import io.reactivex.Observable
+//import io.reactivex.Single
+//import io.reactivex.android.schedulers.AndroidSchedulers
+//import io.reactivex.disposables.Disposable
+//import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import rx.Subscription
 import susu.com.getqiitalist.http.construct.HttpConstants
 import susu.com.getqiitalist.util.DeviceUtils
 import susu.com.getqiitalist.util.LogUtils
@@ -49,7 +56,7 @@ abstract class BaseClient {
         onError: ((Throwable) -> Unit),
         onComplete: (() -> Unit)
 
-    ): Disposable {
+    ): Subscription {
 
         return observable
             .subscribeOn(Schedulers.io())
@@ -71,32 +78,6 @@ abstract class BaseClient {
                 onComplete()
             })
 
-    }
-
-    /**
-     * 非同期で通信する
-     *
-     * @param single 通信ストリーム
-     * @param onSuccess 通信成功後の処理
-     * @param onError 通信失敗後の処理
-     */
-    fun <T> asyncSingleRequest(
-        single: Single<T>,
-        onSuccess: ((T) -> Unit),
-        onError: ((Throwable) -> Unit)
-    ): Disposable {
-
-        return single
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .retry(HttpConstants.RETRY_COUNT)
-            .subscribe({
-                LogUtils.d(this::class.java.simpleName, "doOnSuccess : ${it.toString()}")
-                onSuccess(it)
-            }, {
-                LogUtils.e(this::class.java.simpleName, "doOnError : ${it.message}")
-                onError(it)
-            })
     }
 
     class HeaderInterceptor : Interceptor {

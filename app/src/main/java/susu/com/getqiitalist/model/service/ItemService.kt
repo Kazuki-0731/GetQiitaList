@@ -20,6 +20,6 @@ interface ItemService {
     @GET("items")
     fun itemsRx(
         @Query("page") page: Int,
-        @Query("par_page") perPage: Int
+        @Query("per_page") perPage: Int
     ): Observable<List<QiitaDTO>>
 }

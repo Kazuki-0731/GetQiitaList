@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96270036-626a-46ef-9848-c949b1c9f2ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_adapter_rxjava_2_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxandroid_1_2_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava_1_3_8_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/ApiClientManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -22,18 +18,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_8_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_9_1_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,55 +54,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="161" selection-start-line="161" selection-end-line="161" />
+            <state relative-caret-position="151">
+              <caret line="145" selection-start-line="143" selection-end-line="145" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/dialog/TextDialogFragment.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" selection-start-line="15" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/MainActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
+            <state relative-caret-position="160">
+              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding>
-                <element signature="e#45#367#0" expanded="true" />
+                <element signature="e#43#277#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <folding>
+                <element signature="e#45#224#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="162">
+              <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
               <folding>
-                <element signature="e#1354#1399#0" expanded="true" />
-                <element signature="e#1451#1499#0" expanded="true" />
-                <element signature="e#1554#1605#0" expanded="true" />
+                <element signature="e#43#782#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/exception/RetrofitException.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="225">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -120,11 +120,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+            <state relative-caret-position="308">
+              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
               <folding>
                 <element signature="e#53#706#0" expanded="true" />
                 <element signature="e#708#1323#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#45#230#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,19 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Error :</find>
-      <find>onPageStarted</find>
-      <find>io.reactivex</find>
-      <find>subscribe</find>
-      <find>subscribeOn</find>
-      <find>rx</find>
-      <find>okhttp3_ver</find>
-      <find>okhttp3:logging-interceptor</find>
-      <find>CompositeSubscription</find>
-      <find>getQiitaNote</find>
-      <find>progressBar</find>
-      <find>qiitaFragment</find>
-      <find>error</find>
       <find>adapter</find>
       <find>addCallAdapterFactory</find>
       <find>retrofit2.adapter.rxjava</find>
@@ -174,7 +173,20 @@
       <find>showHttpErrorDialog</find>
       <find>mAppLifeChangeCallback</find>
       <find>activity</find>
+      <find>getQiitaData</find>
       <find>force finish</find>
+      <find>con</find>
+      <find>companion object</find>
+      <find>single</find>
+      <find>asyncRequest</find>
+      <find>io.reactivex</find>
+      <find>asyncSingleRequest</find>
+      <find>CompositeSubscription</find>
+      <find>getQiitaNote</find>
+      <find>Unable to create call adapter for rx.Observable</find>
+      <find>observable</find>
+      <find>Observable&lt;List&lt;QiitaDTO&gt;&gt;</find>
+      <find>.addCallAdapterFactory(RxJavaCallAdapterFactory.create())</find>
     </findStrings>
     <replaceStrings>
       <replace>TITLE</replace>
@@ -184,6 +196,7 @@
       <replace>getQiitaData</replace>
       <replace>DataModel</replace>
       <replace>DetailFragment</replace>
+      <replace>rx</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -204,7 +217,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/util/DeviceUtils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/entities/QiitaDTO.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/util/UrlUtils.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/RxCallAdapterWrapperFactory.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/dialog/BaseDialogFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -212,8 +224,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/cache/QiitaCache.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/adapter/QiitaAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
@@ -221,17 +231,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/DetailFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/LocalWebViewClient.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/action/UserIO.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/ApiClientManager.kt" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/exception/RetrofitException.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/dialog/TextDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt" />
       </list>
     </option>
   </component>
@@ -533,7 +546,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" sideWeight="0.49916804" visible="true" weight="0.21745351" />
+      <window_info content_ui="combo" id="Project" sideWeight="0.49916804" visible="true" weight="0.2360515" />
       <window_info id="Structure" sideWeight="0.50120485" side_tool="true" weight="0.21745351" />
       <window_info id="Build Variants" sideWeight="0.50089765" side_tool="true" weight="0.21745351" />
       <window_info id="Image Layers" />
@@ -543,7 +556,7 @@
       <window_info id="Favorites" sideWeight="0.50166667" side_tool="true" weight="0.21745351" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Run" weight="0.32891566" />
-      <window_info anchor="bottom" id="Logcat" sideWeight="0.4985694" weight="0.96385545" />
+      <window_info active="true" anchor="bottom" id="Logcat" sideWeight="0.4985694" visible="true" weight="0.40481928" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="TODO" />
       <window_info anchor="bottom" id="Find" />
@@ -597,91 +610,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt</url>
-          <line>112</line>
+          <line>114</line>
           <properties />
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt</url>
-          <line>93</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="20" selection-start-line="19" selection-end-line="20" />
-          <folding>
-            <element signature="e#712#730#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.0.0/c158207594782b42f3a2e08a5a029eb3319e4404/lifecycle-livedata-core-2.0.0-sources.jar!/androidx/lifecycle/MutableLiveData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding>
-            <element signature="e#949#950#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/cache/QiitaCache.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#43#211#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/entities/QiitaDTO.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/susu/com/getqiitalist/BuildConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/util/LogUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -799,13 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -831,13 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -877,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -891,54 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#45#204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="e#43#577#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.10/9d22e03b9f0a300edff23ccf219d406d12c3378f/rxjava-2.2.10-sources.jar!/io/reactivex/disposables/CompositeDisposable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/ApiClientManager.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="64" lean-forward="true" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
-          <folding>
-            <element signature="e#45#230#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -953,35 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/exception/RetrofitException.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-          <folding>
-            <element signature="e#45#367#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#1354#1399#0" expanded="true" />
-            <element signature="e#1451#1499#0" expanded="true" />
-            <element signature="e#1554#1605#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,13 +875,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.0.0/c158207594782b42f3a2e08a5a029eb3319e4404/lifecycle-livedata-core-2.0.0-sources.jar!/androidx/lifecycle/LiveData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+        <state relative-caret-position="403">
+          <caret line="178" column="48" selection-start-line="178" selection-start-column="48" selection-end-line="178" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.3.8/4b6a9c1ba2bdf4b6f79d21a96107b8934c377f0a/rxjava-1.3.8-sources.jar!/rx/subscriptions/CompositeSubscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/BaseActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
-            <element signature="e#53#706#0" expanded="true" />
-            <element signature="e#708#1323#0" />
+            <element signature="e#1354#1399#0" expanded="true" />
+            <element signature="e#1451#1499#0" expanded="true" />
+            <element signature="e#1554#1605#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/cache/QiitaCache.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="e#43#211#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1050,10 +918,120 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/activity/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#45#367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/exception/RetrofitException.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/controller/repository/ItemRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+          <folding>
+            <element signature="e#53#706#0" expanded="true" />
+            <element signature="e#708#1323#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/construct/HttpConstants.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.10/9d22e03b9f0a300edff23ccf219d406d12c3378f/rxjava-2.2.10-sources.jar!/io/reactivex/disposables/Disposable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.10/9d22e03b9f0a300edff23ccf219d406d12c3378f/rxjava-2.2.10-sources.jar!/io/reactivex/disposables/CompositeDisposable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/BaseFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#45#230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.3.8/4b6a9c1ba2bdf4b6f79d21a96107b8934c377f0a/rxjava-1.3.8-sources.jar!/rx/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/model/service/ItemService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="e#45#224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/ApiClientManager.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/view/fragment/QiitaFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        <state relative-caret-position="151">
+          <caret line="145" selection-start-line="143" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseClient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+          <folding>
+            <element signature="e#43#782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/QiitaClient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding>
+            <element signature="e#43#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/susu/com/getqiitalist/http/client/BaseJsonClient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="64" />
         </state>
       </provider>
     </entry>

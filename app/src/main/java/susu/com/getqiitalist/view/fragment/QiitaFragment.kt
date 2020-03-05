@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -18,6 +19,7 @@ import susu.com.getqiitalist.R
 import susu.com.getqiitalist.RetrofitApplication
 import susu.com.getqiitalist.controller.repository.ItemRepository
 import susu.com.getqiitalist.http.client.ApiClientManager
+import susu.com.getqiitalist.http.client.QiitaClient
 import susu.com.getqiitalist.http.exception.RetrofitException
 import susu.com.getqiitalist.model.cache.QiitaCache
 import susu.com.getqiitalist.model.entities.QiitaDTO
@@ -137,12 +139,48 @@ class QiitaFragment : BaseFragment() {
 //        }
 
         // region TODO : あとで保守
+//        mCompositeDisposable.add(
+//            ApiClientManager.apiClient.itemsRx(page = PAGE, perPage = PAR_PAGE)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnNext {
+//                    // 非同期スレッド
+//                }
+//                .doOnError {
+//                    // 非同期スレッド
+//                }
+//                .doOnCompleted {
+//                    // 非同期スレッド
+//                }
+//                .subscribe({
+//                    Log.d("debug", "rx response=$it")
+//                    if(activity!!.progressBar.visibility == View.VISIBLE){
+//                        // ローディングを非表示
+//                        activity!!.progressBar.visibility = View.GONE
+//                    }
+//                    // ロードアイコン非表示
+//                    swiperefresh.isRefreshing = false
+//                    // Listをadapterにセット
+//                    adapter!!.qiitaList = it
+//                    // リロード
+//                    adapter!!.notifyDataSetChanged()
+//                    // ロードアイコン非表示
+//                    stopSwipeLoadIcon()
+//                },{
+//                    // エラー種別振り分け
+//                    val exception = RetrofitException.asRetrofitException(it!!)
+//                    // ダイアログ表示
+//                    (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
+//                    // ロードアイコン非表示
+//                    stopSwipeLoadIcon()
+//                })
+//        )
+
         mCompositeDisposable.add(
-            ApiClientManager.apiClient.itemsRx(page = PAGE, perPage = PAR_PAGE)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext {
-                    Log.d("debug", "rx response=$it")
+            QiitaClient().getQiitaNote(
+                { qiita ->
+                    // 通信後の処理
+                    Log.d("debug", "rx response=$qiita")
                     if(activity!!.progressBar.visibility == View.VISIBLE){
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE
@@ -150,40 +188,27 @@ class QiitaFragment : BaseFragment() {
                     // ロードアイコン非表示
                     swiperefresh.isRefreshing = false
                     // Listをadapterにセット
-                    adapter!!.qiitaList = it
+                    adapter!!.qiitaList = qiita
                     // リロード
                     adapter!!.notifyDataSetChanged()
-                }
-                .doOnError {
-                    // エラー種別振り分け
-                    val exception = RetrofitException.asRetrofitException(it!!)
-                    // ダイアログ表示
-                    (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
-                }
-                .doOnCompleted {
                     // ロードアイコン非表示
                     stopSwipeLoadIcon()
+                },
+                { throwable ->
+                    if (throwable is RetrofitException) {
+                        // エラー種別振り分け
+                        val exception = RetrofitException.asRetrofitException(throwable!!)
+                        // ダイアログ表示
+                        (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
+                        // ロードアイコン非表示
+                        stopSwipeLoadIcon()
+                    }
+                },
+                {
+                    // 完了時
                 }
-                .subscribe()
+            )
         )
-
-//        mCompositeDisposable.add(
-//            QiitaClient().getQiitaNote(
-//                { qiita ->
-//                    // 通信後の処理
-//                    val qiitaList = mutableListOf<QiitaDTO>()
-//                    qiitaViewModel.QiitaListLiveData.postValue(qiitaList)
-//                    qiitaList.forEach {
-//                        Log.d("debug", "title : ".plus(it.title))
-//                    }
-//                },
-//                { throwable ->
-//                    if (throwable is RetrofitException) {
-//                        (activity as? BaseActivity)?.showHttpErrorDialog(throwable)
-//                    }
-//                }
-//            )
-//        )
         // endregion
     }
 

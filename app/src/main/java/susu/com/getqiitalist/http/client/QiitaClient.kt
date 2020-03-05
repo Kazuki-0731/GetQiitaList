@@ -4,6 +4,8 @@ import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import retrofit2.http.GET
 import retrofit2.http.Query
+import rx.Observable
+import rx.Subscription
 import susu.com.getqiitalist.http.construct.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
 
@@ -20,14 +22,15 @@ class QiitaClient : BaseJsonClient() {
      * @param onError 通信失敗後の処理
      */
     fun getQiitaNote(
-        onSuccess: ((QiitaDTO) -> Unit),
-        onError: ((Throwable) -> Unit)
-    ): Disposable {
+        onSuccess: ((List<QiitaDTO>) -> Unit),
+        onError: ((Throwable) -> Unit),
+        onComplete:(() -> Unit)
+    ): Subscription {
         val single = getClient()
             .create(QiitaService::class.java)
             .getQiitaNote(1, 20)
 
-        return asyncSingleRequest(single, onSuccess, onError)
+        return asyncRequest(single, onSuccess, onError, onComplete)
     }
 }
 
@@ -40,5 +43,5 @@ interface QiitaService {
     fun getQiitaNote(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Single<QiitaDTO>
+    ): Observable<List<QiitaDTO>>
 }
