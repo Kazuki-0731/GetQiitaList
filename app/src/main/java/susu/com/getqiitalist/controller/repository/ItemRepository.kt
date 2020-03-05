@@ -77,6 +77,7 @@ class ItemRepository(private val activity: Activity, private val qiitaFragment: 
 
     // Qiita記事のリスト取得
     fun getItemList(callback: (List<QiitaDTO>) -> Unit) {
+        // retrofit2の標準クラスCallで取得
         itemService.items(page = PAGE, perPage = PAR_PAGE).enqueue(object : Callback<List<QiitaDTO>> {
 
             // データ取得後

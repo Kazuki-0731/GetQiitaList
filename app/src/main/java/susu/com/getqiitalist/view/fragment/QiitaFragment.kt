@@ -1,6 +1,9 @@
 package susu.com.getqiitalist.view.fragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +12,20 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.RetrofitApplication
 import susu.com.getqiitalist.controller.repository.ItemRepository
+import susu.com.getqiitalist.http.client.ApiClientManager
+import susu.com.getqiitalist.http.exception.RetrofitException
 import susu.com.getqiitalist.model.cache.QiitaCache
 import susu.com.getqiitalist.model.entities.QiitaDTO
+import susu.com.getqiitalist.view.activity.BaseActivity
+import susu.com.getqiitalist.view.activity.MainActivity
 import susu.com.getqiitalist.view.adapter.QiitaAdapter
+import susu.com.getqiitalist.view.dialog.BaseDialogFragment
+import susu.com.getqiitalist.view.dialog.TextDialogFragment
 
 /**
  * ListViewのFragment
@@ -27,6 +38,10 @@ class QiitaFragment : BaseFragment() {
         ViewModelProvider.AndroidViewModelFactory(RetrofitApplication.getInstance())
             .create(QiitaCache::class.java)
     }
+
+    // 取得するページ数など
+    private var PAGE = 1
+    private var PAR_PAGE = 20
 
     // 静的領域
     companion object {
@@ -107,21 +122,51 @@ class QiitaFragment : BaseFragment() {
      */
     private fun getQiitaData() {
         // Retrofitでデータ取得
-        val itemRepository = ItemRepository(activity!!, this)
-        itemRepository.getItemList { itemList ->
-            if(activity!!.progressBar.visibility == View.VISIBLE){
-                // ローディングを非表示
-                activity!!.progressBar.visibility = View.GONE
-            }
-            // ロードアイコン非表示
-            swiperefresh.isRefreshing = false
-            // Listをadapterにセット
-            adapter!!.qiitaList = itemList
-            // リロード
-            adapter!!.notifyDataSetChanged()
-        }
+//        val itemRepository = ItemRepository(activity!!, this)
+//        itemRepository.getItemList { itemList ->
+//            if(activity!!.progressBar.visibility == View.VISIBLE){
+//                // ローディングを非表示
+//                activity!!.progressBar.visibility = View.GONE
+//            }
+//            // ロードアイコン非表示
+//            swiperefresh.isRefreshing = false
+//            // Listをadapterにセット
+//            adapter!!.qiitaList = itemList
+//            // リロード
+//            adapter!!.notifyDataSetChanged()
+//        }
 
         // region TODO : あとで保守
+        mCompositeDisposable.add(
+            ApiClientManager.apiClient.itemsRx(page = PAGE, perPage = PAR_PAGE)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext {
+                    Log.d("debug", "rx response=$it")
+                    if(activity!!.progressBar.visibility == View.VISIBLE){
+                        // ローディングを非表示
+                        activity!!.progressBar.visibility = View.GONE
+                    }
+                    // ロードアイコン非表示
+                    swiperefresh.isRefreshing = false
+                    // Listをadapterにセット
+                    adapter!!.qiitaList = it
+                    // リロード
+                    adapter!!.notifyDataSetChanged()
+                }
+                .doOnError {
+                    // エラー種別振り分け
+                    val exception = RetrofitException.asRetrofitException(it!!)
+                    // ダイアログ表示
+                    (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
+                }
+                .doOnCompleted {
+                    // ロードアイコン非表示
+                    stopSwipeLoadIcon()
+                }
+                .subscribe()
+        )
+
 //        mCompositeDisposable.add(
 //            QiitaClient().getQiitaNote(
 //                { qiita ->

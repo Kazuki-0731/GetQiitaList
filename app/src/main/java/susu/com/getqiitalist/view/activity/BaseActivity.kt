@@ -1,5 +1,6 @@
 package susu.com.getqiitalist.view.activity
 
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.http.exception.RetrofitException
@@ -35,6 +36,7 @@ abstract class BaseActivity : AppCompatActivity() {
         try {
             dialogFragment?.show(supportFragmentManager, null)
         } catch (e: IllegalStateException) {
+            Log.d("debug", "Error : ".plus(e.message))
             mIsShowDialogReserved = true
             mReservedDialog = dialogFragment
         }
