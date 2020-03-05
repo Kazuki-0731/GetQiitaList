@@ -7,17 +7,30 @@ import retrofit2.converter.gson.GsonConverterFactory
 import susu.com.getqiitalist.http.RxCallAdapterWrapperFactory
 import susu.com.getqiitalist.util.UrlUtils
 
+/**
+ * 基底WebAPI通信クラス
+ */
 abstract class BaseJsonClient : BaseClient() {
 
     /**
      * 共通のクライアントを取得する
      */
-    override fun getClient(): Retrofit = Retrofit.Builder().apply {
+    override fun getClient(): Retrofit =
+        Retrofit.Builder().apply {
+            // HTTP通信のクライアントクラス(タイムアウトなど)
+            client(getHttpClient())
 
-        client(getHttpClient())
-        baseUrl(UrlUtils.getDomain())
-//        addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
-        addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-        addConverterFactory(GsonConverterFactory.create(Gson()))
-    }.build()
+            // アクセスURL
+            baseUrl(UrlUtils.getDomain())
+
+            // 受信時のキャッチ処理
+            // RxJava 1系
+//            addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
+            // RxJava 2系
+            addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+
+            // JSON変換クラスライブラリ
+            addConverterFactory(GsonConverterFactory.create(Gson()))
+        }
+    .build()
 }

@@ -12,9 +12,11 @@ import susu.com.getqiitalist.R
 import susu.com.getqiitalist.model.entities.QiitaDTO
 import susu.com.getqiitalist.view.fragment.DetailFragment
 
-
+/**
+ * Qiita記事一覧表示するListViewのアダプター
+ */
 class QiitaAdapter(private val context: Context, private val fragment: FragmentManager) : BaseAdapter() {
-    // 遅延宣言
+    // 表示させるためのList
     lateinit var qiitaList: List<QiitaDTO>
     // Layoutオブジェクト
     private val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -44,7 +46,9 @@ class QiitaAdapter(private val context: Context, private val fragment: FragmentM
         val qiita_title = view!!.findViewById<TextView>(R.id.qiita_title)
         qiita_title.text = qiitaList[position].title
 
+        // ListViewのセル押下時
         view.setOnClickListener {
+            // 詳細画面へ遷移
             val transaction = mfragment.beginTransaction()
             transaction.addToBackStack(null)
             transaction.replace(R.id.container, DetailFragment.getInstance(qiitaList[position].url))

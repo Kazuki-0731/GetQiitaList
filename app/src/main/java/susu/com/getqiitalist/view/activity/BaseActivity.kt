@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.http.exception.RetrofitException
+import susu.com.getqiitalist.util.LogUtils
 import susu.com.getqiitalist.view.dialog.BaseDialogFragment
 import susu.com.getqiitalist.view.dialog.TextDialogFragment
 
@@ -17,6 +18,9 @@ abstract class BaseActivity : AppCompatActivity() {
     /** 表示予定のダイアログ */
     private var mReservedDialog: BaseDialogFragment? = null
 
+    /**
+     * アプリ復帰時
+     */
     override fun onResume() {
         super.onResume()
         if (mIsShowDialogReserved and (mReservedDialog != null)) {
@@ -36,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity() {
         try {
             dialogFragment?.show(supportFragmentManager, null)
         } catch (e: IllegalStateException) {
-            Log.d("debug", "Error : ".plus(e.message))
+            LogUtils.d("debug", "Error : ".plus(e.message))
             mIsShowDialogReserved = true
             mReservedDialog = dialogFragment
         }

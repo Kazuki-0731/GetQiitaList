@@ -2,6 +2,9 @@ package susu.com.getqiitalist.model.entities
 
 import com.squareup.moshi.Json
 
+/**
+ * WebAPIで返却されるJSONの対象キーに紐づく値を格納するデータクラス
+ */
 data class QiitaDTO (
     @Json(name = "id") // 記事ID
     val id: String,

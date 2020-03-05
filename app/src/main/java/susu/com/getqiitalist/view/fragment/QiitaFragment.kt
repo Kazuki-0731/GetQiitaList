@@ -1,7 +1,5 @@
 package susu.com.getqiitalist.view.fragment
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,41 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.RetrofitApplication
-import susu.com.getqiitalist.controller.repository.ItemRepository
-import susu.com.getqiitalist.http.client.ApiClientManager
 import susu.com.getqiitalist.http.client.QiitaClient
 import susu.com.getqiitalist.http.exception.RetrofitException
-import susu.com.getqiitalist.model.cache.QiitaCache
 import susu.com.getqiitalist.model.entities.QiitaDTO
+import susu.com.getqiitalist.util.LogUtils
 import susu.com.getqiitalist.view.activity.BaseActivity
-import susu.com.getqiitalist.view.activity.MainActivity
 import susu.com.getqiitalist.view.adapter.QiitaAdapter
-import susu.com.getqiitalist.view.dialog.BaseDialogFragment
-import susu.com.getqiitalist.view.dialog.TextDialogFragment
 
 /**
  * ListViewのFragment
  */
 class QiitaFragment : BaseFragment() {
 
-    var dataList: List<QiitaDTO> = mutableListOf()
-
-    private val qiitaViewModel: QiitaCache by lazy {
-        ViewModelProvider.AndroidViewModelFactory(RetrofitApplication.getInstance())
-            .create(QiitaCache::class.java)
-    }
-
-    // 取得するページ数など
-    private var PAGE = 1
-    private var PAR_PAGE = 20
+    // リストAdapterのメンバ変数
+    private var adapter : QiitaAdapter? = null
+    // Adapterにセットするデータリスト
+    private var dataList: List<QiitaDTO> = mutableListOf()
 
     // 静的領域
     companion object {
@@ -54,9 +37,6 @@ class QiitaFragment : BaseFragment() {
             return instance
         }
     }
-
-    // リストAdapterのメンバ変数
-    private var adapter : QiitaAdapter? = null
 
     // region Fragment()拡張
     // View生成時
@@ -82,6 +62,13 @@ class QiitaFragment : BaseFragment() {
 
         // スワイプ時の処理
         swiperefresh.setOnRefreshListener {
+            // 初期化
+            // なぜ初期化するのかは、以下を参照
+            // https://gfx.hatenablog.com/entry/2015/06/08/091656
+            mCompositeDisposable!!.unsubscribe()
+            mCompositeDisposable = null
+            mCompositeDisposable = CompositeSubscription()
+
             getQiitaData()
         }
     }
@@ -97,33 +84,13 @@ class QiitaFragment : BaseFragment() {
         adapter!!.qiitaList = dataList
         // listViewに代入
         listView.adapter = adapter
-        // 長押しイベント付与
-        listView.setOnItemLongClickListener { parent, view, position, id ->
-            // 対象セルの文字列表示
-            val listView: ListView = parent as ListView
-            val str = listView.getItemAtPosition(position) as String
-            Toast.makeText(activity!!.applicationContext, "$str", Toast.LENGTH_LONG).show()
-            true
-        }
-
-        /**
-         * 本当はobserve()使って、受信時の処理を細かく記述しようとしたが、時間の関係上あと回し
-         */
-        // region TODO : あとで保守
-        // オブザーブ受信後の表示側
-//        qiitaViewModel.QiitaListLiveData.observe(viewLifecycleOwner, Observer {
-//            adapter!!.qiitaList = it
-//            // notify??
-//            adapter!!.notifyDataSetChanged()
-//        })
-        // endregion
     }
 
     /**
      * Qiita記事のタイトル一覧を取得する
      */
     private fun getQiitaData() {
-        // Retrofitでデータ取得
+        // Retrofitの標準クラスCallでデータ取得
 //        val itemRepository = ItemRepository(activity!!, this)
 //        itemRepository.getItemList { itemList ->
 //            if(activity!!.progressBar.visibility == View.VISIBLE){
@@ -138,7 +105,7 @@ class QiitaFragment : BaseFragment() {
 //            adapter!!.notifyDataSetChanged()
 //        }
 
-        // region TODO : あとで保守
+        // region RxJava 1系
 //        mCompositeDisposable.add(
 //            ApiClientManager.apiClient.itemsRx(page = PAGE, perPage = PAR_PAGE)
 //                .subscribeOn(Schedulers.io())
@@ -153,7 +120,7 @@ class QiitaFragment : BaseFragment() {
 //                    // 非同期スレッド
 //                }
 //                .subscribe({
-//                    Log.d("debug", "rx response=$it")
+//                    LogUtils.d("debug", "rx response=$it")
 //                    if(activity!!.progressBar.visibility == View.VISIBLE){
 //                        // ローディングを非表示
 //                        activity!!.progressBar.visibility = View.GONE
@@ -175,12 +142,16 @@ class QiitaFragment : BaseFragment() {
 //                    stopSwipeLoadIcon()
 //                })
 //        )
+        // endregion
 
-        mCompositeDisposable.add(
+        // region RxJava 2系
+        // 非同期処理
+        mCompositeDisposable!!.add(
+            // Qiitaの記事一覧取得
             QiitaClient().getQiitaNote(
                 { qiita ->
                     // 通信後の処理
-                    Log.d("debug", "rx response=$qiita")
+                    LogUtils.d("debug", "rx response=$qiita")
                     if(activity!!.progressBar.visibility == View.VISIBLE){
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE
@@ -191,21 +162,18 @@ class QiitaFragment : BaseFragment() {
                     adapter!!.qiitaList = qiita
                     // リロード
                     adapter!!.notifyDataSetChanged()
-                    // ロードアイコン非表示
-                    stopSwipeLoadIcon()
                 },
                 { throwable ->
-                    if (throwable is RetrofitException) {
-                        // エラー種別振り分け
-                        val exception = RetrofitException.asRetrofitException(throwable!!)
-                        // ダイアログ表示
-                        (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
-                        // ロードアイコン非表示
-                        stopSwipeLoadIcon()
-                    }
+                    // 例外発生時
+                    // エラー種別振り分け
+                    val exception = RetrofitException.asRetrofitException(throwable)
+                    // ダイアログ表示
+                    (activity!! as? BaseActivity)?.showHttpErrorDialog(exception)
                 },
                 {
-                    // 完了時
+                    // 非同期処理終了時
+                    // ロードアイコン非表示
+                    stopSwipeLoadIcon()
                 }
             )
         )
@@ -213,7 +181,7 @@ class QiitaFragment : BaseFragment() {
     }
 
     /**
-     * スワイプ時のアイコン非表示
+     * 通信後のロードアイコン非表示
      */
     fun stopSwipeLoadIcon(){
         // ローディングを非表示

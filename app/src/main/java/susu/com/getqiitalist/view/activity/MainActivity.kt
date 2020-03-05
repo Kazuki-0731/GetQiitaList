@@ -6,11 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.controller.action.UserIO
 import susu.com.getqiitalist.view.fragment.QiitaFragment
 
 class MainActivity : BaseActivity() {
 
+    // Fragment生成時
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,11 +22,6 @@ class MainActivity : BaseActivity() {
             transaction.add(R.id.container, QiitaFragment.getInstance())
             transaction.commit()
         }
-
-        // Controllerを初期化
-//        UserIO(this, supportFragmentManager)
-        UserIO.statefulActivity = this
-        UserIO.statefulFragment = supportFragmentManager
     }
 
     // 設定メニュー
