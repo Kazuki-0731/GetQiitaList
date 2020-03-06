@@ -14,11 +14,7 @@ class TextDialogFragment(
     /** OKボタンの文言 */
     private val positiveButtonLabel: Int = R.string.dialog_button_positive,
     /** OKボタンの押下時のリスナ */
-    private val positiveButtonListener: DialogInterface.OnClickListener = DialogInterface.OnClickListener { dialog, _ -> dialog.dismiss() },
-    /** キャンセルボタンの文言 */
-    private val negativeButtonLabel: Int = R.string.dialog_button_negative,
-    /** キャンセルボタンの押下時のリスナ */
-    private val negativeButtonListener: DialogInterface.OnClickListener = DialogInterface.OnClickListener { dialog, _ -> dialog.dismiss() }
+    private val positiveButtonListener: DialogInterface.OnClickListener = DialogInterface.OnClickListener { dialog, _ -> dialog.dismiss() }
 ) : BaseDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -29,7 +25,6 @@ class TextDialogFragment(
             setMessage(mMessage)
 
             setPositiveButton(positiveButtonLabel, positiveButtonListener)
-            setNegativeButton(negativeButtonLabel, negativeButtonListener)
         }.create()
     }
 }
