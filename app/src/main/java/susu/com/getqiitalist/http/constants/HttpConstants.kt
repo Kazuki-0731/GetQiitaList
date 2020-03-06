@@ -19,7 +19,9 @@ class HttpConstants {
         const val HEADER_USER_AGENT = "User-Agent"
 
         // ========== APIパラメータ =========== //
+        /** ページ番号 */
         const val PAGE = 1
+        /** 1ページあたりに含まれる要素数 */
         const val PER_PAGE = 100
 
         // ========== URLのリスト =========== //

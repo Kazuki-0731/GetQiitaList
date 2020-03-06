@@ -32,7 +32,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /**
      * ダイアログを表示する
-     *
      * @param dialogFragment ダイアログ
      */
     fun showDialog(dialogFragment: BaseDialogFragment?) {
@@ -48,6 +47,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /**
      * 通信エラーダイアログを表示する
+     * @param throwable エラーオブジェクト
      */
     fun showHttpErrorDialog(throwable: RetrofitException) {
         val message = when (throwable.mErrorType) {
