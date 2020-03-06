@@ -26,39 +26,37 @@ Androidプロジェクトのフォルダ構成は、MVCアーキテクチャに�
 
 Controllerに関しては、ユーザーからの入力が特に無いため、特別設けていません。
 
+### 通信周り(http)
+* client
+  * 通信における正常系、異常系のキャッチをする
+* constants
+  * 通信時のパラメータ定数
+* exception
+  * 例外区分、エラーメッセージなど
+* repository
+ * retrofit2の標準クラスCallで取得(今回は利しないが、通信の勉強の際に利用した)
+
+### 汎用機能
+* util
+ * ビルド時に生成させる定数取得やLogなどの汎用的なもの
+
 ### Model構成
-* action
-  * 設定系
-* database
-  * SQLiteのデータベース周り
 * entities
   * キャッシュ(一時保存)
-
-![Model](https://user-images.githubusercontent.com/28224709/68700424-3d674e80-05c8-11ea-9679-a672599165a6.png)
+* service
+  * JSONの対象キーを指定して、変数化するための取り決め(プロトコル)
 
 ### View構成
-* common
-  * フロントに共通化する処理や定数など
+* activity
+  * activity関係
+* adapter
+  * ListViewのアダプター関係
+* dialog
+  * ダイアログ関係
 * fragment
   * fragment関係
-* util
-  * UIオブジェクトのカスタムクラス郡
 
-![Veiw](https://user-images.githubusercontent.com/28224709/68700445-448e5c80-05c8-11ea-85f4-50bb43d75bb0.png)
-
-## [各アイコンの説明]
-* 右下のアイコン押下でダイアログ表示
-  * ダイアログ内にあるテキストボックス入力でDB内にデータ挿入
-  * キャンセルでダイアログを閉じる
-* 中央のアイコン押下で全表示/Active/Inactiveを切り替えます
-  * 全表示の場合、三本線のアイコンになります
-    * 全タスク表示されます
-  * Activeの場合、黄色い星アイコンになります
-    * 完了タスクのみ表示されます
-  * Inactiveの場合、グレーの星アイコンになります
-    * 未完了タスクのみ表示されます
-* リストの右側のゴミ箱アイコン押下で１行削除します
-  * 削除されると画面がリロードします
+![Model](https://user-images.githubusercontent.com/28224709/76072118-bf95db80-5fda-11ea-8edf-4556ed8eba89.png)
 
 ## [実際の画面]
 ### 入力画面
