@@ -4,6 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable
 import rx.Subscription
+import susu.com.getqiitalist.http.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
 
 /**
@@ -55,7 +56,7 @@ class QiitaClient : BaseJsonClient() {
         // 受け取るデータ形式の取り決め生成
         val observable = getClient()
             .create(QiitaService::class.java)
-            .getQiitaNote(1, 20)
+            .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
 
         // 定期受信要求を実行
         return asyncRequest(observable, onSuccess, onError)

@@ -138,7 +138,7 @@ class QiitaFragment : BaseFragment() {
             QiitaClient().getQiitaNote(
                 { qiita ->
                     // 通信後の処理
-                    LogUtils.d("debug", "rx response=$qiita")
+                    LogUtils.d("debug", "rx response = $qiita")
                     if(activity!!.progressBar.visibility == View.VISIBLE){
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE

@@ -17,8 +17,8 @@ import susu.com.getqiitalist.http.exception.RetrofitException.Companion.asRetrof
  */
 class RxCallAdapterWrapperFactory private constructor() : CallAdapter.Factory() {
 
+    // 静的領域
     companion object {
-
         fun create(): CallAdapter.Factory {
             return RxCallAdapterWrapperFactory()
         }
@@ -26,6 +26,7 @@ class RxCallAdapterWrapperFactory private constructor() : CallAdapter.Factory() 
 
     private val original = RxJava2CallAdapterFactory.create()
 
+    // CallAdapterを取得
     override fun get(
         returnType: Type,
         annotations: Array<Annotation>,
@@ -34,13 +35,19 @@ class RxCallAdapterWrapperFactory private constructor() : CallAdapter.Factory() 
         return RxCallAdapterWrapper(original.get(returnType, annotations, retrofit) ?: return null)
     }
 
+    // インナークラス
     inner class RxCallAdapterWrapper<R>(private val wrapped: CallAdapter<R, *>) :
         CallAdapter<R, Any> {
 
+        // HTTPレスポンスのタイプ
         override fun responseType(): Type {
             return wrapped.responseType()
         }
 
+        /**
+         * 通信結果のレスポンスをメインスレッドに通知する
+         * @param call 非同期呼び出し
+         */
         override fun adapt(call: Call<R>): Any {
             return when (val result = wrapped.adapt(call)) {
                 is Single<*> -> result.onErrorResumeNext(Function { throwable ->

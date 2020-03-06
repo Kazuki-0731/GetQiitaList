@@ -3,4 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- アイコンの背景色 -->
+    <color name="ic_launcher_background">#57DC09</color>
 </resources>

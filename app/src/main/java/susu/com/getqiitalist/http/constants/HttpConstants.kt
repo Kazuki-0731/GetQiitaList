@@ -18,6 +18,10 @@ class HttpConstants {
         // ========== リクエストヘッダー =========== //
         const val HEADER_USER_AGENT = "User-Agent"
 
+        // ========== APIパラメータ =========== //
+        const val PAGE = 1
+        const val PER_PAGE = 100
+
         // ========== URLのリスト =========== //
         /** 指定URL */
         const val URL_BASE = "https://qiita.com/api/v2/users/susu_susu__/"
