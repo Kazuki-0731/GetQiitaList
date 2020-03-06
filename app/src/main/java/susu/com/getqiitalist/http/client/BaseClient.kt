@@ -50,8 +50,7 @@ abstract class BaseClient {
     fun <T> asyncRequest(
         observable: Observable<T>,
         onNext: ((T) -> Unit),
-        onError: ((Throwable) -> Unit),
-        onComplete: (() -> Unit)
+        onError: ((Throwable) -> Unit)
     ): Subscription {
         /**
          * Subscriptionを形成
@@ -68,28 +67,13 @@ abstract class BaseClient {
             .subscribeOn(Schedulers.io())
             // Observableが吐き出したデータを受け取って加工するメインスレッド
             .observeOn(AndroidSchedulers.mainThread())
-            // リトライ処理を制御するためのメソッド
-            .retryWhen { observable ->
-                // リトライ数の設定
-                observable.take(HttpConstants.RETRY_COUNT).flatMap {
-                    // 100msごとに実行
-                    return@flatMap Observable.timer(100, TimeUnit.MILLISECONDS)
-                }
-            }
             .doOnNext {
                 // データが正常に受信した時(サブスレッド)
                 LogUtils.d(this::class.java.simpleName, "doOnNext : ${it.toString()}")
-                onNext(it)
             }
             .doOnError {
                 // 例外発生時(サブスレッド)
                 LogUtils.e(this::class.java.simpleName, "doOnError : ${it.message}")
-                onError(it)
-            }
-            .doOnCompleted {
-                // 受信されるデータが無い時(サブスレッド)
-                LogUtils.d(this::class.java.simpleName, "doOnComplete")
-                onComplete()
             }
             // 非同期通信の結果をメインスレッドへ通知
             .subscribe({
@@ -100,10 +84,6 @@ abstract class BaseClient {
                 // 例外発生時
                 LogUtils.e(this::class.java.simpleName, "doOnError : ${it.message}")
                 onError(it)
-            }, {
-                // 受信されるデータが無い時
-                LogUtils.d(this::class.java.simpleName, "doOnComplete")
-                onComplete()
             })
     }
 

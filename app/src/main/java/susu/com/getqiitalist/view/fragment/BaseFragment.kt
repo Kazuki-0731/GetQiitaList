@@ -2,6 +2,7 @@ package susu.com.getqiitalist.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import io.reactivex.disposables.CompositeDisposable
 import rx.subscriptions.CompositeSubscription
 
 /**
@@ -13,17 +14,17 @@ abstract class BaseFragment : Fragment() {
     // RxJava 1系
 //    protected var mCompositeDisposable = CompositeDisposable()
     // RxJava 2系
-    var mCompositeDisposable : CompositeSubscription? = CompositeSubscription()
+    protected var mCompositeDisposable = CompositeSubscription()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // スレッドがバッティングしないように初期化
-        mCompositeDisposable!!.clear()
+        mCompositeDisposable.clear()
     }
 
     override fun onDestroy() {
         // スレッドがバッティングしないように初期化
-        mCompositeDisposable!!.clear()
+        mCompositeDisposable.clear()
         super.onDestroy()
     }
 }

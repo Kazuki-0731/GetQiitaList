@@ -36,6 +36,8 @@ class RetrofitException private constructor(
 
         /**
          * ステータスコードに関するエラーを生成する
+         * @param url 通信したURL
+         * @param
          */
         private fun httpError(
             url: String,
@@ -48,6 +50,7 @@ class RetrofitException private constructor(
 
         /**
          * サーバー通信に関するエラーを生成する
+         * @param exception 通信エラー
          */
         private fun networkError(exception: IOException): RetrofitException {
             return RetrofitException(exception.message, null, null, ErrorType.NETWORK, exception)
@@ -55,6 +58,7 @@ class RetrofitException private constructor(
 
         /**
          * それ以外のエラーを生成する
+         * @param exception 不明なエラー
          */
         private fun unexpectedError(exception: Throwable): RetrofitException {
             return RetrofitException(exception.message, null, null, ErrorType.UNEXPECTED, exception)

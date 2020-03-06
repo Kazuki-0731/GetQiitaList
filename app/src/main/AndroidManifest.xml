@@ -7,7 +7,6 @@
 
     <!-- アプリ構造 -->
     <application
-        android:name=".RetrofitApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

@@ -50,8 +50,7 @@ class QiitaClient : BaseJsonClient() {
      */
     fun getQiitaNote(
         onSuccess: ((List<QiitaDTO>) -> Unit),
-        onError: ((Throwable) -> Unit),
-        onComplete:(() -> Unit)
+        onError: ((Throwable) -> Unit)
     ): Subscription {
         // 受け取るデータ形式の取り決め生成
         val observable = getClient()
@@ -59,7 +58,7 @@ class QiitaClient : BaseJsonClient() {
             .getQiitaNote(1, 20)
 
         // 定期受信要求を実行
-        return asyncRequest(observable, onSuccess, onError, onComplete)
+        return asyncRequest(observable, onSuccess, onError)
     }
 }
 

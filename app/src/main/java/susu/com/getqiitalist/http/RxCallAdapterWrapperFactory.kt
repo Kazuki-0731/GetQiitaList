@@ -11,6 +11,10 @@ import java.lang.reflect.Type
 import io.reactivex.functions.Function
 import susu.com.getqiitalist.http.exception.RetrofitException.Companion.asRetrofitException
 
+/**
+ * 通信受信時のキャッチ処理
+ * RxJava 1系
+ */
 class RxCallAdapterWrapperFactory private constructor() : CallAdapter.Factory() {
 
     companion object {
