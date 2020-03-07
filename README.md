@@ -2,7 +2,9 @@
 Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebViewで表示するアプリです。
 
 ## [アプリアイコン]
+<p align="center">
 <img src="https://user-images.githubusercontent.com/28224709/76067227-62962780-5fd2-11ea-8d44-4168ace65eed.jpg" width="50%">
+</p>
 
 ## [機能説明]
 * アプリ起動後、Qiita APIを利用して対象アカウント「susu_susu__」の記事を一覧取得して、ListViewで表示します。
@@ -31,13 +33,17 @@ Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebVi
   * 上記以外の場合、「不明なエラーが発生しました」と表示
 
 ## [プロジェクト構成]
-Androidプロジェクトのフォルダ構成は、MVCアーキテクチャになっております。
+Androidプロジェクトのフォルダ構成は、MVPアーキテクチャになっております。
 
-Controllerに関しては、ユーザーからの入力が特に無いため、特別設けていません。
+Modelにおけるデータベースは存在しなく、通信により取得したデータはキャッシュとして溜めておきます。
+
+Presenterの部分は基本的にhttp通信に関することです。
+
+Viewは、ActivityやFragment、Dialog周りになります。
 
 ![Model](https://user-images.githubusercontent.com/28224709/76072118-bf95db80-5fda-11ea-8edf-4556ed8eba89.png)
 
-### 通信周り(http)
+### Presenter(通信周り)
 * client
   * 通信における正常系、異常系のキャッチをする
 * constants
@@ -68,30 +74,24 @@ Controllerに関しては、ユーザーからの入力が特に無いため、�
   * fragment関係
 
 ## [実際の画面]
-### 入力画面
-<img src="https://user-images.githubusercontent.com/28224709/68698753-f592f800-05c4-11ea-93c8-96a16ff58b19.jpg" width="50%">
+### ロディングアイコン表示
+<img src="https://user-images.githubusercontent.com/28224709/76140748-de5ea580-60a0-11ea-9559-67b6158bb44f.jpg" width="50%">
 
-### データ挿入後
-<img src="https://user-images.githubusercontent.com/28224709/68697851-0478ab00-05c3-11ea-82ff-dd0e1b969001.jpg" width="50%">
+### Qiita記事一覧表示
+<img src="https://user-images.githubusercontent.com/28224709/76140745-dbfc4b80-60a0-11ea-8bb7-776482165f02.jpg" width="50%">
 
-### 未完了タスクのみ表示(中央のボタン押下)
-<img src="https://user-images.githubusercontent.com/28224709/68697825-f88ce900-05c2-11ea-90f7-bdd208a15fa0.jpg" width="50%">
+### 詳細画面へ遷移(ListViewの1セルを押下)
+<img src="https://user-images.githubusercontent.com/28224709/76140739-d4d53d80-60a0-11ea-9a3a-33b48f654c8a.jpg" width="50%">
 
-### 完了タスクのみ表示(中央のボタン押下)
-<img src="https://user-images.githubusercontent.com/28224709/68697814-f1fe7180-05c2-11ea-8c3a-daee6f8e37a3.jpg" width="50%">
+### サーバーから200番台以外の、ステータスコードを受け取った場合のエラー
+<img src="https://user-images.githubusercontent.com/28224709/76140742-da328800-60a0-11ea-92b6-34571000d8c9.jpg" width="50%">
 
-### すべてのタスク表示(中央のボタン押下)
-<img src="https://user-images.githubusercontent.com/28224709/68697851-0478ab00-05c3-11ea-82ff-dd0e1b969001.jpg" width="50%">
+### サーバー通信中に発生したエラー
+<img src="https://user-images.githubusercontent.com/28224709/76140750-def73c00-60a0-11ea-87ec-ac71b6baa1ef.jpg" width="50%">
 
-### 最大入力文字数を超えた場合
-<img src="https://user-images.githubusercontent.com/28224709/68698720-e318be80-05c4-11ea-84c0-8a58afd0284c.jpg" width="50%">
+### 不明なエラー
+<img src="https://user-images.githubusercontent.com/28224709/76140751-df8fd280-60a0-11ea-90b6-f23ff7e37af3.jpg" width="50%">
 
-### TODOリストに登録可能な最大件数を超えた場合
-<img src="https://user-images.githubusercontent.com/28224709/68698741-f0ce4400-05c4-11ea-97c0-d6657a955e30.jpg" width="50%">
-
-### 対象のTODO項目を削除する場合
-<img src="https://user-images.githubusercontent.com/28224709/68697786-e448ec00-05c2-11ea-8231-54c4724b06e5.jpg" width="50%">
-
-### 0桁で入力した場合
-<img src="https://user-images.githubusercontent.com/28224709/68699307-1e67bd00-05c6-11ea-8e90-432f0fef0ebf.jpg" width="50%">
+### 詳細画面にて、通信エラー
+<img src="https://user-images.githubusercontent.com/28224709/76140740-d868c480-60a0-11ea-824f-c615319039a1.jpg" width="50%">
 
