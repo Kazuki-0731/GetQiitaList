@@ -7,7 +7,7 @@ Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebVi
 </p>
 
 ## [機能説明]
-* アプリ起動後、Qiita APIを利用して対象アカウント「susu_susu__」の記事を一覧取得して、ListViewで表示します。
+* アプリ起動後、Qiita APIを利用して対象アカウント「[susu_susu__](https://qiita.com/susu_susu__)」の記事を一覧取得して、ListViewで表示します。
 * 画面を上からスワイプすると、再読み込みが発生します。
 * ListViewをタップすると詳細画面へ遷移します。
 * 通信エラー時は、エラー種別によってダイアログを表示します。
