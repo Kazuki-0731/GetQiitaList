@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.http.exception
+package susu.com.getqiitalist.presenter.exception
 
 import retrofit2.HttpException
 import retrofit2.Response

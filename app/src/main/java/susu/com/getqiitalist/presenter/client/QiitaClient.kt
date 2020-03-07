@@ -1,10 +1,10 @@
-package susu.com.getqiitalist.http.client
+package susu.com.getqiitalist.presenter.client
 
 import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable
 import rx.Subscription
-import susu.com.getqiitalist.http.constants.HttpConstants
+import susu.com.getqiitalist.presenter.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
 
 /**

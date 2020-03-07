@@ -1,21 +1,15 @@
 package susu.com.getqiitalist.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.http.client.ApiClientManager
-import susu.com.getqiitalist.http.client.QiitaClient
-import susu.com.getqiitalist.http.exception.RetrofitException
+import susu.com.getqiitalist.presenter.client.QiitaClient
+import susu.com.getqiitalist.presenter.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
 import susu.com.getqiitalist.util.LogUtils
 import susu.com.getqiitalist.view.activity.BaseActivity

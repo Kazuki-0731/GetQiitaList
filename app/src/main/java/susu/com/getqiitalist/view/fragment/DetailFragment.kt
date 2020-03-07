@@ -1,15 +1,13 @@
 package susu.com.getqiitalist.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.detail_fragment.*
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.http.client.LocalWebViewClient
-import susu.com.getqiitalist.util.LogUtils
+import susu.com.getqiitalist.presenter.client.LocalWebViewClient
 
 class DetailFragment  : BaseFragment() {
 

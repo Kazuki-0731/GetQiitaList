@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.http.client
+package susu.com.getqiitalist.presenter.client
 
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
@@ -9,7 +9,7 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import rx.Subscription
-import susu.com.getqiitalist.http.constants.HttpConstants
+import susu.com.getqiitalist.presenter.constants.HttpConstants
 import susu.com.getqiitalist.util.DeviceUtils
 import susu.com.getqiitalist.util.LogUtils
 import java.util.concurrent.TimeUnit

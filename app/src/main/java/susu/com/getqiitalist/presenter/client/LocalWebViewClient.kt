@@ -1,7 +1,6 @@
-package susu.com.getqiitalist.http.client
+package susu.com.getqiitalist.presenter.client
 
 import android.app.Activity
-import android.graphics.Bitmap
 import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
