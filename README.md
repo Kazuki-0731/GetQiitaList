@@ -35,11 +35,13 @@ Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebVi
 ## [プロジェクト構成]
 Androidプロジェクトのフォルダ構成は、MVPアーキテクチャになっております。
 
-Modelにおけるデータベースは存在しなく、通信により取得したデータはキャッシュとして溜めておきます。
+ModelにおけるDBは存在しなく、通信により取得したデータはキャッシュとして溜めておきます。
 
 Presenterの部分は基本的にhttp通信に関することです。
 
 Viewは、ActivityやFragment、Dialog周りになります。
+
+※なぜ、MVCではなく、MVPなのかと言うと、画面遷移が存在せず、ユーザーからの入力(テキストボックスなど)が存在せず、DBとのやり取りも存在しないためです。
 
 ![Model](https://user-images.githubusercontent.com/28224709/76072118-bf95db80-5fda-11ea-8edf-4556ed8eba89.png)
 
