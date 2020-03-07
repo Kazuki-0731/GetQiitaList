@@ -33,13 +33,11 @@ Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebVi
   * 上記以外の場合、「不明なエラーが発生しました」と表示
 
 ## [プロジェクト構成]
-Androidプロジェクトのフォルダ構成は、MVCアーキテクチャになっております。
-
-Controllerに関しては、ユーザーからの入力が特に無いため、特別設けていません。
+Androidプロジェクトのフォルダ構成は、MVPアーキテクチャになっております。
 
 ![Model](https://user-images.githubusercontent.com/28224709/76072118-bf95db80-5fda-11ea-8edf-4556ed8eba89.png)
 
-### 通信周り(http)
+### Presenter(通信周り)
 * client
   * 通信における正常系、異常系のキャッチをする
 * constants
