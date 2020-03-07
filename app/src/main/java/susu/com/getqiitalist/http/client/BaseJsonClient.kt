@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import susu.com.getqiitalist.http.RxCallAdapterWrapperFactory
 import susu.com.getqiitalist.util.UrlUtils
 
 /**

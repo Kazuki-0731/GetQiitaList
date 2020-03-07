@@ -24,17 +24,28 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    /**
+     * TODO 今後、保守で利用する
+     * 取得するユーザーの変更
+     * ページ数の変更
+     * などを保守する予定
+     */
     // 設定メニュー
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.menu_main, menu)
+//        return true
+//    }
 
+    /**
+     * TODO 今後、保守で利用する
+     * 設定ボタン以外に色の変更など
+     * などを保守する予定
+     */
     // 設定ボタン押下後
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.action_settings -> true
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 }

@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.http
+package susu.com.getqiitalist.http.rxjava1
 
 import io.reactivex.Completable
 import io.reactivex.Observable

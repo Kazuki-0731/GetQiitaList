@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.http.repository
+package susu.com.getqiitalist.http.rxjava1
 
 import android.app.Activity
 import com.squareup.moshi.KotlinJsonAdapterFactory
