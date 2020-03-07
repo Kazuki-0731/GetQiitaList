@@ -2,9 +2,7 @@
 Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebViewで表示するアプリです。
 
 ## [アプリアイコン]
-| アイコン画像 |
-|:------------------:|
-| <img src="https://user-images.githubusercontent.com/28224709/76067227-62962780-5fd2-11ea-8d44-4168ace65eed.jpg" width="50%"> |
+<img src="https://user-images.githubusercontent.com/28224709/76067227-62962780-5fd2-11ea-8d44-4168ace65eed.jpg" width="50%">
 
 ## [機能説明]
 * アプリ起動後、Qiita APIを利用して対象アカウント「susu_susu__」の記事を一覧取得して、ListViewで表示します。
