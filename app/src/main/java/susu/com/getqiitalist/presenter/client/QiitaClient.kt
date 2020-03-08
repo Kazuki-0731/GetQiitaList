@@ -6,6 +6,8 @@ import rx.Observable
 import rx.Subscription
 import susu.com.getqiitalist.presenter.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
+import susu.com.getqiitalist.model.service.QiitaListService
+import susu.com.getqiitalist.model.service.QiitaNoteService
 
 /**
  * WebAPIを叩いて、JSON取得してModelに格納して返却するクラス
@@ -43,6 +45,26 @@ import susu.com.getqiitalist.model.entities.QiitaDTO
  */
 class QiitaClient : BaseJsonClient() {
     /**
+     * QiitaのList情報を取得する
+     *
+     * @param onSuccess 通信成功後の処理
+     * @param onError 通信失敗後の処理
+     * @param onComplete 通信完了後の処理
+     */
+    fun getQiitaList(
+        onSuccess: ((List<QiitaDTO>) -> Unit),
+        onError: ((Throwable) -> Unit)
+    ): Subscription {
+        // 受け取るデータ形式の取り決め生成
+        val observable = getClient()
+            .create(QiitaListService::class.java)
+            .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
+
+        // 定期受信要求を実行
+        return asyncRequest(observable, onSuccess, onError)
+    }
+
+    /**
      * Qiita情報を取得する
      *
      * @param onSuccess 通信成功後の処理
@@ -50,35 +72,16 @@ class QiitaClient : BaseJsonClient() {
      * @param onComplete 通信完了後の処理
      */
     fun getQiitaNote(
-        onSuccess: ((List<QiitaDTO>) -> Unit),
+        id : String,
+        onSuccess: ((QiitaDTO) -> Unit),
         onError: ((Throwable) -> Unit)
     ): Subscription {
         // 受け取るデータ形式の取り決め生成
-        val observable = getClient()
-            .create(QiitaService::class.java)
-            .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
+        val observable = getClientNote()
+            .create(QiitaNoteService::class.java)
+            .getQiitaNote(id)
 
         // 定期受信要求を実行
         return asyncRequest(observable, onSuccess, onError)
     }
-}
-
-/**
- * Qiita記事を取得するAPIの指定とパラメータ付与するためのインターフェース
- */
-interface QiitaService {
-    /**
-     * 対象APIを指定
-     * WebAPIのGETで対象APIを指定
-     *
-     * @param page ページ番号
-     * @param perPage 1ページあたりに含まれる要素数
-     *
-     * @return Observable<List<QiitaDTO>> 受け取るデータ形式
-     */
-    @GET("items")
-    fun getQiitaNote(
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): Observable<List<QiitaDTO>>
 }

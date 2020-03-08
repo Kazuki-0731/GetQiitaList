@@ -9,7 +9,16 @@ object UrlUtils {
      *
      * @return APIドメイン
      */
-    fun getDomain(): String {
-        return HttpConstants.URL_BASE
+    fun getListURL(): String {
+        return HttpConstants.LIST_URL
+    }
+
+    /**
+     * APIのドメインを取得する
+     *
+     * @return APIドメイン
+     */
+    fun getNoteURL(): String {
+        return HttpConstants.NOTE_URL
     }
 }

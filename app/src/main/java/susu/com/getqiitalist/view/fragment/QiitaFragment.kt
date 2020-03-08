@@ -75,7 +75,7 @@ class QiitaFragment : BaseFragment() {
      */
     private fun setupQiitaList() {
         // Adapter生成
-        adapter = QiitaAdapter(activity!!.applicationContext, fragmentManager!!)
+        adapter = QiitaAdapter(activity!!, fragmentManager!!)
         // 初期値格納
         adapter!!.qiitaList = dataList
         // listViewに代入
@@ -129,10 +129,10 @@ class QiitaFragment : BaseFragment() {
         // 非同期処理
         mCompositeDisposable.add(
             // Qiitaの記事一覧取得
-            QiitaClient().getQiitaNote(
+            QiitaClient().getQiitaList(
                 { qiita ->
                     // 通信後の処理
-                    LogUtils.d("debug", "rx response = $qiita")
+//                    LogUtils.d("debug", "rx response = $qiita")
                     if(activity!!.progressBar.visibility == View.VISIBLE){
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE

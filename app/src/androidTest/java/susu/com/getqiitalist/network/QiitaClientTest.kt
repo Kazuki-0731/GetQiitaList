@@ -1,18 +1,9 @@
 package susu.com.getqiitalist.network
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.gson.Gson
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposable
-import io.reactivex.observers.TestObserver
-import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import retrofit2.HttpException
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import rx.Observable
 import rx.observers.TestSubscriber
 import susu.com.getqiitalist.model.entities.QiitaDTO
@@ -20,10 +11,7 @@ import susu.com.getqiitalist.presenter.client.BaseJsonClient
 import susu.com.getqiitalist.presenter.client.QiitaClient
 import susu.com.getqiitalist.presenter.client.QiitaService
 import susu.com.getqiitalist.presenter.constants.HttpConstants
-import susu.com.getqiitalist.util.UrlUtils
 import java.io.IOException
-import java.util.concurrent.TimeUnit
-
 
 /**
  * Instrumented test, which will execute on an Android device.

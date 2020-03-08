@@ -1,5 +1,10 @@
 package susu.com.getqiitalist.presenter.client
 
+import io.reactivex.Single
+//import io.reactivex.Observable
+//import io.reactivex.schedulers.Schedulers
+//import io.reactivex.android.schedulers.AndroidSchedulers
+//import io.reactivex.disposables.Disposable
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -38,6 +43,7 @@ abstract class BaseClient {
     }
 
     abstract fun getClient(): Retrofit
+    abstract fun getClientNote(): Retrofit
 
     /**
      * 非同期で通信する
@@ -88,6 +94,32 @@ abstract class BaseClient {
     }
 
     /**
+     * 非同期で通信する
+     *
+     * @param single 通信ストリーム
+     * @param onSuccess 通信成功後の処理
+     * @param onError 通信失敗後の処理
+     */
+//    fun <T> asyncSingleRequest(
+//        single: Observable<T>,
+//        onSuccess: ((T) -> Unit),
+//        onError: ((Throwable) -> Unit)
+//    ): Subscription {
+//
+//        return single
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .retry(HttpConstants.RETRY_COUNT)
+//            .subscribe({
+//                LogUtils.d(this::class.java.simpleName, "doOnSuccess : ${it.toString()}")
+//                onSuccess(it)
+//            }, {
+//                LogUtils.e(this::class.java.simpleName, "doOnError : ${it.message}")
+//                onError(it)
+//            })
+//    }
+
+    /**
      * Interceptorのヘッダ部を形成
      *
      * [ 解説 ]
@@ -110,6 +142,9 @@ abstract class BaseClient {
                     request()
                         // 新規作成
                         .newBuilder()
+                        // アクセストークン
+                        // 閲覧数を取得する際に利用する
+                        .header("Authorization", "Bearer dab4729df07243e9db5e937cf9e260edb0dc0b8a")
                         // ヘッダ(User Agent指定)
                         .addHeader(HttpConstants.HEADER_USER_AGENT, DeviceUtils.getModel())
                         // 生成

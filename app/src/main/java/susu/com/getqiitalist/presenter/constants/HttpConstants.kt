@@ -13,7 +13,7 @@ class HttpConstants {
         /** 読み取りのタイムアウト秒数 */
         const val READ_TIMEOUT_MS = 120L
         /** 最大リトライ回数 */
-        const val RETRY_COUNT = 3
+        const val RETRY_COUNT = 3L
 
         // ========== リクエストヘッダー =========== //
         const val HEADER_USER_AGENT = "User-Agent"
@@ -26,6 +26,7 @@ class HttpConstants {
 
         // ========== URLのリスト =========== //
         /** 指定URL */
-        const val URL_BASE = "https://qiita.com/api/v2/users/susu_susu__/"
+        const val LIST_URL = "https://qiita.com/api/v2/users/susu_susu__/"
+        const val NOTE_URL = "https://qiita.com/api/v2/"
     }
 }

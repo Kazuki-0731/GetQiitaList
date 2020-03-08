@@ -12,7 +12,7 @@ import susu.com.getqiitalist.util.UrlUtils
 abstract class BaseJsonClient : BaseClient() {
 
     /**
-     * 共通のクライアントを取得する
+     * Listのクライアントを取得する
      */
     override fun getClient(): Retrofit =
         Retrofit.Builder().apply {
@@ -20,7 +20,29 @@ abstract class BaseJsonClient : BaseClient() {
             client(getHttpClient())
 
             // アクセスURL
-            baseUrl(UrlUtils.getDomain())
+            baseUrl(UrlUtils.getListURL())
+
+            // 受信時のキャッチ処理
+            // RxJava 1系
+//            addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
+            // RxJava 2系
+            addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+
+            // JSON変換クラスライブラリ
+            addConverterFactory(GsonConverterFactory.create(Gson()))
+        }
+    .build()
+
+    /**
+     * 1記事のクライアントを取得
+     */
+    override fun getClientNote(): Retrofit =
+        Retrofit.Builder().apply {
+            // HTTP通信のクライアントクラス(タイムアウトなど)
+            client(getHttpClient())
+
+            // アクセスURL
+            baseUrl(UrlUtils.getNoteURL())
 
             // 受信時のキャッチ処理
             // RxJava 1系
