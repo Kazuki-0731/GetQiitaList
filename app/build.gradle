@@ -63,4 +63,7 @@ dependencies {
 
     // Swipeレイアウト
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    // Mockライブラリ
+    testImplementation 'org.mockito:mockito-inline:2.21.0'
 }

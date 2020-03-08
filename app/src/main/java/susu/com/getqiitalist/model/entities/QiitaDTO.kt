@@ -6,8 +6,6 @@ import com.squareup.moshi.Json
  * WebAPIで返却されるJSONの対象キーに紐づく値を格納するデータクラス
  */
 data class QiitaDTO (
-    @Json(name = "id") // 記事ID
-    val id: String,
     @Json(name = "title") // タイトル
     val title: String,
     @Json(name = "likes_count") // お気に入り数
