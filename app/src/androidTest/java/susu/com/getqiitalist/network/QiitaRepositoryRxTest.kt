@@ -7,10 +7,10 @@ import retrofit2.HttpException
 import rx.Observable
 import rx.observers.TestSubscriber
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.presenter.client.BaseJsonClient
-import susu.com.getqiitalist.presenter.client.QiitaClient
-import susu.com.getqiitalist.presenter.client.QiitaService
-import susu.com.getqiitalist.presenter.constants.HttpConstants
+import susu.com.getqiitalist.model.api.client.BaseJsonClient
+import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
+import susu.com.getqiitalist.model.api.client.QiitaService
+import susu.com.getqiitalist.common.constants.HttpConstants
 import java.io.IOException
 
 /**
@@ -19,7 +19,7 @@ import java.io.IOException
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class QiitaClientTest : BaseJsonClient(){
+class QiitaRepositoryRxTest : BaseJsonClient(){
 
     /**
      * Qiita APIからデータ取得
@@ -28,7 +28,8 @@ class QiitaClientTest : BaseJsonClient(){
     @Test
     fun getQiitaList(){
         // 通信クライアントのオブジェクト作成
-        val observable : Observable<List<QiitaDTO>> = QiitaClient().getClient()
+        val observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
+            .getClient()
             .create(QiitaService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
 
@@ -52,7 +53,8 @@ class QiitaClientTest : BaseJsonClient(){
     @Test
     fun getQiitaListHTTPError(){
         // 通信クライアントのオブジェクト作成
-        var observable : Observable<List<QiitaDTO>> = QiitaClient().getClient()
+        var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
+            .getClient()
             .create(QiitaService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {
@@ -82,7 +84,8 @@ class QiitaClientTest : BaseJsonClient(){
     @Test
     fun getQiitaListNetWorkError(){
         // 通信クライアントのオブジェクト作成
-        var observable : Observable<List<QiitaDTO>> = QiitaClient().getClient()
+        var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
+            .getClient()
             .create(QiitaService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {
@@ -112,7 +115,8 @@ class QiitaClientTest : BaseJsonClient(){
     @Test
     fun getQiitaListUnknownError(){
         // 通信クライアントのオブジェクト作成
-        var observable : Observable<List<QiitaDTO>> = QiitaClient().getClient()
+        var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
+            .getClient()
             .create(QiitaService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {

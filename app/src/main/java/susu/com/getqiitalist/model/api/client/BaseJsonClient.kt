@@ -1,10 +1,10 @@
-package susu.com.getqiitalist.presenter.client
+package susu.com.getqiitalist.model.api.client
 
 import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import susu.com.getqiitalist.util.UrlUtils
+import susu.com.getqiitalist.common.util.UrlUtils
 
 /**
  * 基底WebAPI通信クラス

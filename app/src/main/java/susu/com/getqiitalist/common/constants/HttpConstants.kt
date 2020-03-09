@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.presenter.constants
+package susu.com.getqiitalist.common.constants
 
 /**
  * 通信で使用する定数を定義する

@@ -9,14 +9,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.presenter.client.QiitaClient
-import susu.com.getqiitalist.presenter.exception.RetrofitException
-import susu.com.getqiitalist.util.LogUtils
+import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
+import susu.com.getqiitalist.model.api.exception.RetrofitException
+import susu.com.getqiitalist.common.util.LogUtils
 import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.fragment.DetailFragment
 
@@ -72,7 +70,7 @@ class QiitaAdapter(private val activity: Activity, private val fragment: Fragmen
         //https://qiita.com/api/v2/items/id
         compositeDisposable.add(
             // Qiitaの記事一覧取得
-            QiitaClient().getQiitaNote(
+            QiitaRepositoryRx().getQiitaNote(
                 qiitaList[position].id,
                 { qiita ->
                     // 通信後の処理

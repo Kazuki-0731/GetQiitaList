@@ -1,13 +1,11 @@
-package susu.com.getqiitalist.presenter.client
+package susu.com.getqiitalist.model.api.repositories
 
-import retrofit2.http.GET
-import retrofit2.http.Query
-import rx.Observable
 import rx.Subscription
-import susu.com.getqiitalist.presenter.constants.HttpConstants
+import susu.com.getqiitalist.common.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.service.QiitaListService
-import susu.com.getqiitalist.model.service.QiitaNoteService
+import susu.com.getqiitalist.model.api.service.QiitaListService
+import susu.com.getqiitalist.model.api.service.QiitaNoteService
+import susu.com.getqiitalist.model.api.client.BaseJsonClient
 
 /**
  * WebAPIを叩いて、JSON取得してModelに格納して返却するクラス
@@ -43,7 +41,7 @@ import susu.com.getqiitalist.model.service.QiitaNoteService
  * アプリ立ち上げ時画面1へ遷移
  * 画面1のリスト内の要素を押下すると押下されたアイテムのURLを引数に画面2へ遷移
  */
-class QiitaClient : BaseJsonClient() {
+class QiitaRepositoryRx : BaseJsonClient() {
     /**
      * QiitaのList情報を取得する
      *

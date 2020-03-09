@@ -1,8 +1,7 @@
-package susu.com.getqiitalist.model.service
+package susu.com.getqiitalist.model.api.service
 
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 import rx.Observable
 import susu.com.getqiitalist.model.entities.QiitaDTO
 

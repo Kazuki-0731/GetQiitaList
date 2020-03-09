@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.util
+package susu.com.getqiitalist.common.util
 
 import android.os.Build
 

@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.presenter.rxjava1
+package susu.com.getqiitalist.model.api.repositories
 
 import android.app.Activity
 import com.squareup.moshi.KotlinJsonAdapterFactory
@@ -9,9 +9,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import susu.com.getqiitalist.presenter.exception.RetrofitException
+import susu.com.getqiitalist.model.api.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.service.ItemService
+import susu.com.getqiitalist.model.api.service.Retrofit2Service
 import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.fragment.QiitaFragment
 
@@ -49,10 +49,10 @@ import susu.com.getqiitalist.view.fragment.QiitaFragment
  * アプリ立ち上げ時画面1へ遷移
  * 画面1のリスト内の要素を押下すると押下されたアイテムのURLを引数に画面2へ遷移
  */
-class ItemRepository(private val activity: Activity, private val qiitaFragment: QiitaFragment) {
+class QiitaRepositoryRetrofit2(private val activity: Activity, private val qiitaFragment: QiitaFragment) {
 
     // 通信用
-    private var itemService: ItemService
+    private var retrofit2Service: Retrofit2Service
     private var USER_ID = "susu_susu__"
     private var PAGE = 1
     private var PAR_PAGE = 20
@@ -66,13 +66,13 @@ class ItemRepository(private val activity: Activity, private val qiitaFragment: 
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttpClient)
             .build()
-        itemService = retrofit.create(ItemService::class.java)
+        retrofit2Service = retrofit.create(Retrofit2Service::class.java)
     }
 
     // Qiita記事のリスト取得
     fun getItemList(callback: (List<QiitaDTO>) -> Unit) {
         // retrofit2の標準クラスCallで取得
-        itemService.items(page = PAGE, perPage = PAR_PAGE).enqueue(object : Callback<List<QiitaDTO>> {
+        retrofit2Service.items(page = PAGE, perPage = PAR_PAGE).enqueue(object : Callback<List<QiitaDTO>> {
 
             // データ取得後
             override fun onResponse(call: Call<List<QiitaDTO>>?, response: Response<List<QiitaDTO>>?) {

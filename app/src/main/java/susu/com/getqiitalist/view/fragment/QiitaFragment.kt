@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.presenter.client.QiitaClient
-import susu.com.getqiitalist.presenter.exception.RetrofitException
+import susu.com.getqiitalist.common.util.LogUtils
+import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
+import susu.com.getqiitalist.model.api.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.util.LogUtils
 import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.adapter.QiitaAdapter
 
@@ -129,10 +129,10 @@ class QiitaFragment : BaseFragment() {
         // 非同期処理
         mCompositeDisposable.add(
             // Qiitaの記事一覧取得
-            QiitaClient().getQiitaList(
+            QiitaRepositoryRx().getQiitaList(
                 { qiita ->
                     // 通信後の処理
-//                    LogUtils.d("debug", "rx response = $qiita")
+                    LogUtils.d("debug", "rx response = $qiita")
                     if(activity!!.progressBar.visibility == View.VISIBLE){
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE

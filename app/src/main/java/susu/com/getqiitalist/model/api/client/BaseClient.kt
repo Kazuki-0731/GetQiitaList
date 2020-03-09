@@ -1,6 +1,5 @@
-package susu.com.getqiitalist.presenter.client
+package susu.com.getqiitalist.model.api.client
 
-import io.reactivex.Single
 //import io.reactivex.Observable
 //import io.reactivex.schedulers.Schedulers
 //import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,9 +13,9 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import rx.Subscription
-import susu.com.getqiitalist.presenter.constants.HttpConstants
-import susu.com.getqiitalist.util.DeviceUtils
-import susu.com.getqiitalist.util.LogUtils
+import susu.com.getqiitalist.common.constants.HttpConstants
+import susu.com.getqiitalist.common.util.DeviceUtils
+import susu.com.getqiitalist.common.util.LogUtils
 import java.util.concurrent.TimeUnit
 
 /**

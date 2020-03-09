@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.presenter.client
+package susu.com.getqiitalist.model.api.client
 
 import android.app.Activity
 import android.view.View

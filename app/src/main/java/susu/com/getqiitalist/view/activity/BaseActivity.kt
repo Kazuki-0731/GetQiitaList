@@ -2,8 +2,8 @@ package susu.com.getqiitalist.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.presenter.exception.RetrofitException
-import susu.com.getqiitalist.util.LogUtils
+import susu.com.getqiitalist.model.api.exception.RetrofitException
+import susu.com.getqiitalist.common.util.LogUtils
 import susu.com.getqiitalist.view.dialog.BaseDialogFragment
 import susu.com.getqiitalist.view.dialog.TextDialogFragment
 

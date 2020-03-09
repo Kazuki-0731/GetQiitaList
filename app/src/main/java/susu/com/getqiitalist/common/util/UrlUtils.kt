@@ -1,6 +1,6 @@
-package susu.com.getqiitalist.util
+package susu.com.getqiitalist.common.util
 
-import susu.com.getqiitalist.presenter.constants.HttpConstants
+import susu.com.getqiitalist.common.constants.HttpConstants
 
 object UrlUtils {
 
