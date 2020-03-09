@@ -43,7 +43,7 @@ Viewは、ActivityやFragment、Dialog周りになります。
 
 **※なぜ、MVCではなく、MVPなのかと言うと、画面遷移、ユーザーからの入力(テキストボックスなど)も存在せず、DBとのやり取りも存在しないためです。通信した結果を表示するだけであれば、MVPでよいと考えました。**
 
-## Common(共通モジュール)
+### Common(共通モジュール)
 ![Common](https://user-images.githubusercontent.com/28224709/76188692-20602680-621c-11ea-8ed9-47e113c0558e.png)
 
 * constants
