@@ -6,5 +6,5 @@
 
     <!-- アイコンの背景色 -->
     <!-- 実際のQiita公式ホームページから抽出 -->
-    <color name="ic_launcher_background">#55C500</color>
+    <color name="qiita_color">#55C500</color>
 </resources>

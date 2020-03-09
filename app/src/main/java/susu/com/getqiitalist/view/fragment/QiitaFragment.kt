@@ -57,6 +57,8 @@ class QiitaFragment : BaseFragment() {
         // Viewの表示処理
         setupQiitaList()
 
+        // スワイプ時の色
+        swiperefresh.setColorSchemeResources(R.color.qiita_color)
         // スワイプ時の処理
         swiperefresh.setOnRefreshListener {
             // 初期化
