@@ -43,29 +43,36 @@ Viewは、ActivityやFragment、Dialog周りになります。
 
 **※なぜ、MVCではなく、MVPなのかと言うと、画面遷移、ユーザーからの入力(テキストボックスなど)も存在せず、DBとのやり取りも存在しないためです。通信した結果を表示するだけであれば、MVPでよいと考えました。**
 
-![Model](https://user-images.githubusercontent.com/28224709/76072118-bf95db80-5fda-11ea-8edf-4556ed8eba89.png)
+## Common(共通モジュール)
+![Common](https://user-images.githubusercontent.com/28224709/76188692-20602680-621c-11ea-8ed9-47e113c0558e.png)
+
+* constants
+  * 定数
+* util
+  * ビルド時に生成させる定数取得やLogなどの汎用的なもの
+
+### Model
+![Model](https://user-images.githubusercontent.com/28224709/76188696-21915380-621c-11ea-877e-46e08a6b7b57.png)
+* entities
+  * キャッシュ(一時保存)
+* service
+  * 通信で取得するデータの型の取り決め(プロトコル)
 
 ### Presenter(通信周り)
+![Presenter](https://user-images.githubusercontent.com/28224709/76188698-2229ea00-621c-11ea-91ed-8514782b5358.png)
+
+* callAdapter
+  * RxJava1系の通信受信時のコールバック
 * client
   * 通信における正常系、異常系のキャッチをする
-* constants
-  * 通信時のパラメータ定数
 * exception
   * 例外区分、エラーメッセージなど
 * repository
   * retrofit2の標準クラスCallで取得(今回は利しないが、通信の勉強の際に利用した)
 
-### 汎用機能
-* util
-  * ビルド時に生成させる定数取得やLogなどの汎用的なもの
-
-### Model構成
-* entities
-  * キャッシュ(一時保存)
-* service
-  * JSONの対象キーを指定して、変数化するための取り決め(プロトコル)
-
 ### View構成
+![view](https://user-images.githubusercontent.com/28224709/76188695-20f8bd00-621c-11ea-98a4-65514766c1aa.png)
+
 * activity
   * activity関係
 * adapter
