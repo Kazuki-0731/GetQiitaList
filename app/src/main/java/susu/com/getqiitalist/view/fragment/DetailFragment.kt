@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.detail_fragment.*
 import susu.com.getqiitalist.R
-import susu.com.getqiitalist.model.api.client.LocalWebViewClient
+import susu.com.getqiitalist.presenter.client.LocalWebViewClient
 
 class DetailFragment  : BaseFragment() {
 

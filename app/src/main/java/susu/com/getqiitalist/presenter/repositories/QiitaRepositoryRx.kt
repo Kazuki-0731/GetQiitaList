@@ -1,10 +1,10 @@
-package susu.com.getqiitalist.model.api.repositories
+package susu.com.getqiitalist.presenter.repositories
 
 import rx.Subscription
 import susu.com.getqiitalist.common.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.api.service.QiitaListService
-import susu.com.getqiitalist.model.api.client.BaseJsonClient
+import susu.com.getqiitalist.model.service.QiitaListService
+import susu.com.getqiitalist.presenter.client.BaseJsonClient
 
 /**
  * WebAPIを叩いて、JSON取得してModelに格納して返却するクラス

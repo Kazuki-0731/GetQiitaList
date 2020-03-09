@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.model.api.repositories
+package susu.com.getqiitalist.presenter.repositories
 
 import android.app.Activity
 import com.squareup.moshi.KotlinJsonAdapterFactory
@@ -9,9 +9,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import susu.com.getqiitalist.model.api.exception.RetrofitException
+import susu.com.getqiitalist.presenter.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.api.service.Retrofit2Service
+import susu.com.getqiitalist.model.service.Retrofit2Service
 import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.fragment.QiitaFragment
 

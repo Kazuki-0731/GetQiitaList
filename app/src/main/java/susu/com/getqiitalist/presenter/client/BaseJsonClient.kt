@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.model.api.client
+package susu.com.getqiitalist.presenter.client
 
 import com.google.gson.Gson
 import retrofit2.Retrofit

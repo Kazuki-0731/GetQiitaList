@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.model.api.client
+package susu.com.getqiitalist.presenter.client
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import susu.com.getqiitalist.model.api.service.Retrofit2Service
+import susu.com.getqiitalist.model.service.Retrofit2Service
 import java.util.concurrent.TimeUnit
 
 open class ApiClientManager {

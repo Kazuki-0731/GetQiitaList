@@ -7,16 +7,14 @@ import retrofit2.HttpException
 import rx.Observable
 import rx.observers.TestSubscriber
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.api.client.BaseJsonClient
-import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
-import susu.com.getqiitalist.model.api.client.QiitaService
+import susu.com.getqiitalist.presenter.client.BaseJsonClient
+import susu.com.getqiitalist.presenter.repositories.QiitaRepositoryRx
 import susu.com.getqiitalist.common.constants.HttpConstants
+import susu.com.getqiitalist.model.service.QiitaListService
 import java.io.IOException
 
 /**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * データ取得テスト
  */
 @RunWith(AndroidJUnit4::class)
 class QiitaRepositoryRxTest : BaseJsonClient(){
@@ -30,7 +28,7 @@ class QiitaRepositoryRxTest : BaseJsonClient(){
         // 通信クライアントのオブジェクト作成
         val observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
             .getClient()
-            .create(QiitaService::class.java)
+            .create(QiitaListService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
 
         // Testsubscriberを作成する
@@ -55,7 +53,7 @@ class QiitaRepositoryRxTest : BaseJsonClient(){
         // 通信クライアントのオブジェクト作成
         var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
             .getClient()
-            .create(QiitaService::class.java)
+            .create(QiitaListService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {
                 /** ここが重要 */
@@ -86,7 +84,7 @@ class QiitaRepositoryRxTest : BaseJsonClient(){
         // 通信クライアントのオブジェクト作成
         var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
             .getClient()
-            .create(QiitaService::class.java)
+            .create(QiitaListService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {
                 /** ここが重要 */
@@ -117,7 +115,7 @@ class QiitaRepositoryRxTest : BaseJsonClient(){
         // 通信クライアントのオブジェクト作成
         var observable : Observable<List<QiitaDTO>> = QiitaRepositoryRx()
             .getClient()
-            .create(QiitaService::class.java)
+            .create(QiitaListService::class.java)
             .getQiitaNote(HttpConstants.PAGE, HttpConstants.PER_PAGE)
             .map {
                 /** ここが重要 */
@@ -143,12 +141,12 @@ class QiitaRepositoryRxTest : BaseJsonClient(){
      */
     fun mockData() : List<QiitaDTO>{
         var mock : List<QiitaDTO> = listOf(
-            QiitaDTO( "ぼくの考えた最強のSharedPreferences", 0, 0, "https://qiita.com/susu_susu__/items/76a59e0cf6c93db74bd7"),
-            QiitaDTO( "[備忘録]Kotlinでシングルトンクラスの作成方法", 2, 0, "https://qiita.com/susu_susu__/items/0976fd46b31b95298e78"),
-            QiitaDTO( "Python3系のAWS CLIと.NET Core v2.1の入ったCentOSイメージを作る", 0, 0, "https://qiita.com/susu_susu__/items/e94829c93090d07ba593"),
-            QiitaDTO( "[Kotlin] isEmpty(), isBlank()などの違い早見表", 2, 0, "https://qiita.com/susu_susu__/items/88af247034049945f65d"),
-            QiitaDTO( "iOSアプリの設計手法について", 10, 0, "https://qiita.com/susu_susu__/items/545083dc7b0e7e0c40cc"),
-            QiitaDTO( "WebViewとネイティブのメリットデメリット", 9, 0, "https://qiita.com/susu_susu__/items/aff3b8cc26cd2d5535f8"))
+            QiitaDTO( "76a59e0cf6c93db74bd7", "ぼくの考えた最強のSharedPreferences", 0, 0, "https://qiita.com/susu_susu__/items/76a59e0cf6c93db74bd7"),
+            QiitaDTO( "0976fd46b31b95298e78","[備忘録]Kotlinでシングルトンクラスの作成方法", 2, 3, "https://qiita.com/susu_susu__/items/0976fd46b31b95298e78"),
+            QiitaDTO( "e94829c93090d07ba593","Python3系のAWS CLIと.NET Core v2.1の入ったCentOSイメージを作る", 0, 0, "https://qiita.com/susu_susu__/items/e94829c93090d07ba593"),
+            QiitaDTO( "88af247034049945f65d","[Kotlin] isEmpty(), isBlank()などの違い早見表", 3, 0, "https://qiita.com/susu_susu__/items/88af247034049945f65d"),
+            QiitaDTO( "545083dc7b0e7e0c40cc","iOSアプリの設計手法について", 10, 10, "https://qiita.com/susu_susu__/items/545083dc7b0e7e0c40cc"),
+            QiitaDTO( "aff3b8cc26cd2d5535f8","WebViewとネイティブのメリットデメリット", 9, 0, "https://qiita.com/susu_susu__/items/aff3b8cc26cd2d5535f8"))
         return mock
     }
 }

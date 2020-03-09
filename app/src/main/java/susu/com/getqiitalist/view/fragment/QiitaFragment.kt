@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.content_main.*
 import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.common.util.LogUtils
-import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
-import susu.com.getqiitalist.model.api.exception.RetrofitException
+import susu.com.getqiitalist.presenter.repositories.QiitaRepositoryRx
+import susu.com.getqiitalist.presenter.exception.RetrofitException
 import susu.com.getqiitalist.model.entities.QiitaDTO
 import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.adapter.QiitaAdapter

@@ -2,7 +2,6 @@ package susu.com.getqiitalist.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import io.reactivex.disposables.CompositeDisposable
 import rx.subscriptions.CompositeSubscription
 
 /**

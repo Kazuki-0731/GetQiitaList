@@ -9,13 +9,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
-import rx.subscriptions.CompositeSubscription
 import susu.com.getqiitalist.R
 import susu.com.getqiitalist.model.entities.QiitaDTO
-import susu.com.getqiitalist.model.api.repositories.QiitaRepositoryRx
-import susu.com.getqiitalist.model.api.exception.RetrofitException
-import susu.com.getqiitalist.common.util.LogUtils
-import susu.com.getqiitalist.view.activity.BaseActivity
 import susu.com.getqiitalist.view.fragment.DetailFragment
 
 /**
@@ -27,7 +22,6 @@ class QiitaAdapter(private val activity: Activity, private val fragment: Fragmen
     // Layoutオブジェクト
     private val layoutInflater = activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private val mfragment = fragment
-    private val compositeDisposable = CompositeSubscription()
 
     override fun getCount(): Int {
         return qiitaList.count()

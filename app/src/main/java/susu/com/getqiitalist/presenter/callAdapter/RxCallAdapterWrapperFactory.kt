@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.model.api.RetrofitCallAdapter
+package susu.com.getqiitalist.presenter.callAdapter
 
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.lang.reflect.Type
 import io.reactivex.functions.Function
-import susu.com.getqiitalist.model.api.exception.RetrofitException.Companion.asRetrofitException
+import susu.com.getqiitalist.presenter.exception.RetrofitException.Companion.asRetrofitException
 
 /**
  * 通信受信時のキャッチ処理

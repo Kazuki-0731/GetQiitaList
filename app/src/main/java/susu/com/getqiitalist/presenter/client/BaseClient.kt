@@ -1,9 +1,5 @@
-package susu.com.getqiitalist.model.api.client
+package susu.com.getqiitalist.presenter.client
 
-//import io.reactivex.Observable
-//import io.reactivex.schedulers.Schedulers
-//import io.reactivex.android.schedulers.AndroidSchedulers
-//import io.reactivex.disposables.Disposable
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers

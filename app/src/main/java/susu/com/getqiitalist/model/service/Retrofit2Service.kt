@@ -1,4 +1,4 @@
-package susu.com.getqiitalist.model.api.service
+package susu.com.getqiitalist.model.service
 
 import retrofit2.Call
 import retrofit2.http.GET
