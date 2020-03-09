@@ -1,6 +1,11 @@
 # Qiita記事一覧アプリ
 Kotlinで制作したQiita記事一覧をListで表示し、記事詳細をWebViewで表示するアプリです。
 
+APKファイルだけ欲しい方は、以下のURLをクリックしてください。
+
+### ダウンロードはこちら
+### [https://github.com/susu-to-susu/GetQiitaList/raw/master/APK_File/app-debug.apk](https://github.com/susu-to-susu/GetQiitaList/raw/master/APK_File/app-debug.apk)
+
 ## [アプリアイコン]
 <p align="center">
 <img src="https://user-images.githubusercontent.com/28224709/76067227-62962780-5fd2-11ea-8d44-4168ace65eed.jpg" width="50%">
