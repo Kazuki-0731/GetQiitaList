@@ -87,7 +87,7 @@ Viewは、ActivityやFragment、Dialog周りになります。
 <img src="https://user-images.githubusercontent.com/28224709/76140748-de5ea580-60a0-11ea-9559-67b6158bb44f.jpg" width="50%">
 
 ### Qiita記事一覧表示
-<img src="https://user-images.githubusercontent.com/28224709/76140745-dbfc4b80-60a0-11ea-8bb7-776482165f02.jpg" width="50%">
+<img src="https://user-images.githubusercontent.com/28224709/76189345-c6606080-621d-11ea-9353-9ab96f056859.jpg" width="50%">
 
 ### 詳細画面へ遷移(ListViewの1セルを押下)
 <img src="https://user-images.githubusercontent.com/28224709/76140739-d4d53d80-60a0-11ea-9a3a-33b48f654c8a.jpg" width="50%">
