@@ -61,11 +61,14 @@ class QiitaFragment : BaseFragment() {
         swiperefresh.setColorSchemeResources(R.color.qiita_color)
         // スワイプ時の処理
         swiperefresh.setOnRefreshListener {
+            // 更新中は押下できないようにする(非同期が二回走り、アプリが落ちる)
+            adapter!!.isNotSwipe = false
+
             // 初期化
             // なぜ初期化するのかは、以下を参照
             // https://gfx.hatenablog.com/entry/2015/06/08/091656
-            mCompositeDisposable.unsubscribe()
-            mCompositeDisposable = CompositeSubscription()
+            mCompositeSubscription.unsubscribe()
+            mCompositeSubscription = CompositeSubscription()
 
             getQiitaData()
         }
@@ -129,7 +132,7 @@ class QiitaFragment : BaseFragment() {
 
         // region RxJava 2系
         // 非同期処理
-        mCompositeDisposable.add(
+        mCompositeSubscription.add(
             // Qiitaの記事一覧取得
             QiitaRepositoryRx().getQiitaList(
                 { qiita ->
@@ -139,8 +142,6 @@ class QiitaFragment : BaseFragment() {
                         // ローディングを非表示
                         activity!!.progressBar.visibility = View.GONE
                     }
-                    // ロードアイコン非表示
-                    swiperefresh.isRefreshing = false
                     // Listをadapterにセット
                     adapter!!.qiitaList = qiita
                     // リロード
@@ -170,5 +171,7 @@ class QiitaFragment : BaseFragment() {
         activity!!.progressBar.visibility = View.GONE
         // ロードアイコン非表示
         swiperefresh.isRefreshing = false
+        // 更新中は押下できないようにする(非同期が二回走り、アプリが落ちる)
+        adapter!!.isNotSwipe = true
     }
 }

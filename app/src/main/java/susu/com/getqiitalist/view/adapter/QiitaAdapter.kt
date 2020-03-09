@@ -17,6 +17,7 @@ import susu.com.getqiitalist.view.fragment.DetailFragment
  * Qiita記事一覧表示するListViewのアダプター
  */
 class QiitaAdapter(private val activity: Activity, private val fragment: FragmentManager) : BaseAdapter() {
+    var isNotSwipe = true
     // 表示させるためのList
     lateinit var qiitaList: List<QiitaDTO>
     // Layoutオブジェクト
@@ -57,11 +58,13 @@ class QiitaAdapter(private val activity: Activity, private val fragment: Fragmen
 
         // ListViewのセル押下時
         view.setOnClickListener {
-            // 詳細画面へ遷移
-            val transaction = mfragment.beginTransaction()
-            transaction.addToBackStack(null)
-            transaction.replace(R.id.container, DetailFragment.getInstance(qiitaList[position].url))
-            transaction.commit()
+            if(isNotSwipe){
+                // 詳細画面へ遷移
+                val transaction = mfragment.beginTransaction()
+                transaction.addToBackStack(null)
+                transaction.replace(R.id.container, DetailFragment.getInstance(qiitaList[position].url))
+                transaction.commit()
+            }
         }
 
         // 返却

@@ -13,17 +13,17 @@ abstract class BaseFragment : Fragment() {
     // RxJava 1系
 //    protected var mCompositeDisposable = CompositeDisposable()
     // RxJava 2系
-    protected var mCompositeDisposable = CompositeSubscription()
+    protected var mCompositeSubscription = CompositeSubscription()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // スレッドがバッティングしないように初期化
-        mCompositeDisposable.clear()
+        mCompositeSubscription.clear()
     }
 
     override fun onDestroy() {
         // スレッドがバッティングしないように初期化
-        mCompositeDisposable.clear()
+        mCompositeSubscription.clear()
         super.onDestroy()
     }
 }
