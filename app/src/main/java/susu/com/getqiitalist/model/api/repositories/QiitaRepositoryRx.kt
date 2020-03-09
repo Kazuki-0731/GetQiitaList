@@ -4,7 +4,6 @@ import rx.Subscription
 import susu.com.getqiitalist.common.constants.HttpConstants
 import susu.com.getqiitalist.model.entities.QiitaDTO
 import susu.com.getqiitalist.model.api.service.QiitaListService
-import susu.com.getqiitalist.model.api.service.QiitaNoteService
 import susu.com.getqiitalist.model.api.client.BaseJsonClient
 
 /**
@@ -42,6 +41,7 @@ import susu.com.getqiitalist.model.api.client.BaseJsonClient
  * 画面1のリスト内の要素を押下すると押下されたアイテムのURLを引数に画面2へ遷移
  */
 class QiitaRepositoryRx : BaseJsonClient() {
+
     /**
      * QiitaのList情報を取得する
      *
@@ -62,24 +62,4 @@ class QiitaRepositoryRx : BaseJsonClient() {
         return asyncRequest(observable, onSuccess, onError)
     }
 
-    /**
-     * Qiita情報を取得する
-     *
-     * @param onSuccess 通信成功後の処理
-     * @param onError 通信失敗後の処理
-     * @param onComplete 通信完了後の処理
-     */
-    fun getQiitaNote(
-        id : String,
-        onSuccess: ((QiitaDTO) -> Unit),
-        onError: ((Throwable) -> Unit)
-    ): Subscription {
-        // 受け取るデータ形式の取り決め生成
-        val observable = getClientNote()
-            .create(QiitaNoteService::class.java)
-            .getQiitaNote(id)
-
-        // 定期受信要求を実行
-        return asyncRequest(observable, onSuccess, onError)
-    }
 }

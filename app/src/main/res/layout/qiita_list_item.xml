@@ -32,15 +32,6 @@
             tools:text="返信数 : 4"
             />
 
-        <TextView
-            android:id="@+id/page_views_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginStart="12dp"
-            android:textSize="12sp"
-            tools:text="閲覧数 : 0"
-            />
     </LinearLayout>
 
     <TextView
@@ -52,16 +43,5 @@
         android:textSize="24sp"
         tools:text="200"
         />
-
-<!--    <ImageView-->
-<!--        android:id="@+id/image_delete"-->
-<!--        android:layout_width="30dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginRight="16dp"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:src="@drawable/ic_delete_red_24dp"-->
-<!--        />-->
 
 </LinearLayout>

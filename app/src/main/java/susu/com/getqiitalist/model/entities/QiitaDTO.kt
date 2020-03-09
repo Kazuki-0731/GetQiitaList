@@ -14,8 +14,6 @@ data class QiitaDTO (
     val likes_count: Int,
     @Json(name = "comments_count") // 返信数
     val comments_count: Int,
-    @Json(name = "page_views_count") // 閲覧数
-    val page_views_count: Int,
     @Json(name = "url") // 記事のURL
     val url: String
 )

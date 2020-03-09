@@ -42,7 +42,6 @@ abstract class BaseClient {
     }
 
     abstract fun getClient(): Retrofit
-    abstract fun getClientNote(): Retrofit
 
     /**
      * 非同期で通信する

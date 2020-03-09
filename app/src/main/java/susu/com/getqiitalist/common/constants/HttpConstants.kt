@@ -27,6 +27,5 @@ class HttpConstants {
         // ========== URLのリスト =========== //
         /** 指定URL */
         const val LIST_URL = "https://qiita.com/api/v2/users/susu_susu__/"
-        const val NOTE_URL = "https://qiita.com/api/v2/"
     }
 }

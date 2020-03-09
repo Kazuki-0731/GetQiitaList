@@ -33,25 +33,4 @@ abstract class BaseJsonClient : BaseClient() {
         }
     .build()
 
-    /**
-     * 1記事のクライアントを取得
-     */
-    override fun getClientNote(): Retrofit =
-        Retrofit.Builder().apply {
-            // HTTP通信のクライアントクラス(タイムアウトなど)
-            client(getHttpClient())
-
-            // アクセスURL
-            baseUrl(UrlUtils.getNoteURL())
-
-            // 受信時のキャッチ処理
-            // RxJava 1系
-//            addCallAdapterFactory(RxCallAdapterWrapperFactory.create())
-            // RxJava 2系
-            addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-
-            // JSON変換クラスライブラリ
-            addConverterFactory(GsonConverterFactory.create(Gson()))
-        }
-    .build()
 }
