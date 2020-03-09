@@ -37,7 +37,7 @@ Androidプロジェクトのフォルダ構成は、MVPアーキテクチャに�
 
 ModelにおけるDBは存在しなく、通信により取得したデータはキャッシュとして溜めておきます。
 
-Presenterの部分は基本的にhttp通信に関することです。
+**Presenterの部分は基本的にhttp通信に関することです。**
 
 Viewは、ActivityやFragment、Dialog周りになります。
 
