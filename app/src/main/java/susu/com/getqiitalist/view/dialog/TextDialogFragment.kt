@@ -6,6 +6,9 @@ import android.content.DialogInterface
 import android.os.Bundle
 import susu.com.getqiitalist.R
 
+/**
+ * Dialogの文言等のパラメータセットするクラス
+ */
 class TextDialogFragment(
     /** ダイアログのタイトル */
     private val mTitle: String? = null,

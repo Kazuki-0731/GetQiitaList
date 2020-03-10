@@ -9,6 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import susu.com.getqiitalist.model.service.Retrofit2Service
 import java.util.concurrent.TimeUnit
 
+/**
+ * RxJava 1系の通信Clientクラス
+ */
 open class ApiClientManager {
     companion object {
         private const val ENDPOINT = "https://qiita.com/api/v2/users/susu_susu__/"

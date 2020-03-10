@@ -2,6 +2,9 @@ package susu.com.getqiitalist.view.dialog
 
 import androidx.fragment.app.DialogFragment
 
+/**
+ * Dialogのライフサイクル親クラス
+ */
 abstract class BaseDialogFragment : DialogFragment() {
 
     /** ダイアログ表示のフラグ */

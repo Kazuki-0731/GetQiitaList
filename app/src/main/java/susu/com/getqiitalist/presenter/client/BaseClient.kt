@@ -88,32 +88,6 @@ abstract class BaseClient {
     }
 
     /**
-     * 非同期で通信する
-     *
-     * @param single 通信ストリーム
-     * @param onSuccess 通信成功後の処理
-     * @param onError 通信失敗後の処理
-     */
-//    fun <T> asyncSingleRequest(
-//        single: Observable<T>,
-//        onSuccess: ((T) -> Unit),
-//        onError: ((Throwable) -> Unit)
-//    ): Subscription {
-//
-//        return single
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .retry(HttpConstants.RETRY_COUNT)
-//            .subscribe({
-//                LogUtils.d(this::class.java.simpleName, "doOnSuccess : ${it.toString()}")
-//                onSuccess(it)
-//            }, {
-//                LogUtils.e(this::class.java.simpleName, "doOnError : ${it.message}")
-//                onError(it)
-//            })
-//    }
-
-    /**
      * Interceptorのヘッダ部を形成
      *
      * [ 解説 ]
