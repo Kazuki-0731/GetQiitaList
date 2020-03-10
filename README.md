@@ -79,8 +79,8 @@ Viewは、ActivityやFragment、Dialog周りになります。
   * 通信における正常系、異常系のキャッチをする
 * exception
   * 例外区分、エラーメッセージなど
-* repository
-  * retrofit2の標準クラスCallで取得(今回は利しないが、通信の勉強の際に利用した)
+* repositories
+  * 定期受信するためのクラス
 
 ### View構成
 ![view](https://user-images.githubusercontent.com/28224709/76188695-20f8bd00-621c-11ea-98a4-65514766c1aa.png)
